@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Asta</title>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        #controls {
+            background-color: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #controls select, #controls button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        #controls button {
+            background-color: black;
+            color: white;
+            border: none;
+        }
+
+        #controls button:hover {
+            background-color: #333;
+        }
+
+        #container2 {
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #container2 article {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+
+        #container2 article h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        #container2 article p {
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <select id="sortOptions">
+            <option value="lowest">Lowest Bids</option>
+            <option value="highest">Highest Bids</option>
+        </select>
+        <button id="sortButton">Sort</button>
+    </div>
+    <div id="container2"></div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        // Art Asta's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDu1mNebskATIVQmz59QosBS1AhdMAkxqM",
+            authDomain: "art-asta-50475.firebaseapp.com",
+            projectId: "art-asta-50475",
+            storageBucket: "art-asta-50475.appspot.com",
+            messagingSenderId: "343332230219",
+            appId: "1:343332230219:web:efe5a85c164e5e461c69ce"
+        };
+
+        // Initializing Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function loadData(sortOrder = 'lowest') {
+            try {
+                const gettingData = await getDocs(collection(db, "Auction"));
+                const addDataContainer = document.getElementById('container2');
+                addDataContainer.innerHTML = ''; // Clear previous content
+
+                // Convert Firestore collection to an array and sort it
+                let sortedData = gettingData.docs.map(doc => doc.data());
+                if (sortOrder === 'lowest') {
+                    sortedData.sort((a, b) => a.StartBid - b.StartBid);
+                } else if (sortOrder === 'highest') {
+                    sortedData.sort((a, b) => b.StartBid - a.StartBid);
+                }
+
+                sortedData.forEach(postData => {
+                    const article_items = document.createElement('article');
+
+                    article_items.innerHTML = `
+                        <h2>${postData.Title || 'Untitled Post'}</h2>
+                        <p>${postData.Description || 'No content available.'}</p>
+                        <p><strong>Starting Bid:</strong> ${postData.StartBid || 'Unknown Bid'}</p>
+                        <p><strong>Duration:</strong> ${postData.BidDur || 'Unknown Duration'}</p>
+                        <p><strong>Starting Time:</strong> ${postData.StartTime || 'Unknown StartTime'}</p>
+                    `;
+
+                    console.log(postData)
+                    addDataContainer.appendChild(article_items);
+                });
+            } catch (error) {
+                console.log('Error loading data:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData(); // Initial load with default sorting
+
+            const sortButton = document.getElementById('sortButton');
+            sortButton.addEventListener('click', () => {
+                const sortOptions = document.getElementById('sortOptions');
+                const sortOrder = sortOptions.value;
+                loadData(sortOrder);
+            });
+        });
+    </script>
+</body>
+</html>
