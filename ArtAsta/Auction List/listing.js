@@ -1,7 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js"; // Import getStorage and necessary functions
 
-//Art Asta's Firebase configuration
+// Art Asta's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDu1mNebskATIVQmz59QosBS1AhdMAkxqM",
     authDomain: "art-asta-50475.firebaseapp.com",
@@ -14,27 +15,47 @@ const firebaseConfig = {
 // Initializing Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 async function loadData() {
     try {
         const snapshot = await getDocs(collection(db, "Auction"));
         const postsContainer = document.getElementById('postsnewContainer');
 
-        snapshot.forEach(doc => {
+        for (const doc of snapshot.docs) {
             const postData = doc.data();
-            const postElement = document.createElement('article');
+            console.log('Retrieved data:', postData); // Debug log
 
+            // Use AuctionArtworkUrl field to get the image URL from Firebase Storage
+            const imageUrl = await getDownloadURL(ref(storage, postData.AuctionArtworkUrl))
+                .catch(error => {
+                    console.log('Error fetching image:', error);
+                    return 'placeholder.jpg'; // Fallback image
+                });
+            console.log('Image URL:', imageUrl); // Debug log
+
+            const postElement = document.createElement('article');
             postElement.innerHTML = `
-                <img src="${postData.ImageUrl || 'placeholder.jpg'}" alt="${postData.Title || 'No title'}">
+                <img src="${imageUrl}" alt="${postData.Title || 'No title'}">
                 <h2>${postData.Title || 'Untitled Post'}</h2>
                 <p><strong>Artist:</strong> ${postData.Artist || 'Unknown'}</p>
                 <p><strong>Start Time:</strong> ${postData.StartTime || 'Unknown'}</p>
                 <p><strong>Current Bid:</strong> $${postData.StartBid || 'N/A'}</p>
-                <p><strong>Bid Duration:</strong> ${postData.BidDur|| 'N/A'} days</p>
-                <button>Place a Bid</button>
+                <p><strong>Bid Duration:</strong> ${postData.BidDur || 'N/A'} days</p>
+                <p><strong>Description:</strong> ${postData.Description || 'No description'}</p>
+                <button class="bid-button" data-id="${doc.id}">Place a Bid</button>
             `;
 
             postsContainer.appendChild(postElement);
+        }
+
+        // Add event listeners to the bid buttons
+        const bidButtons = document.querySelectorAll('.bid-button');
+        bidButtons.forEach(button => {
+            button.addEventListener('click', event => {
+                const auctionId = event.target.getAttribute('data-id');
+                window.location.href = `auction-details.html?id=${auctionId}`;
+            });
         });
     } catch (error) {
         console.log('Error loading data:', error);
@@ -54,5 +75,5 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('list-view');
     });
 
-    document.body.classList.add('list-view');
+    document.body.classList.add('grid-view');
 });
