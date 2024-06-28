@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="artist-info-main-page.js" type="module" defer></script>
+    <link rel="stylesheet" href="artist-info-main-page.css">
+</head>
+<body>
+    <h1>Enter your information (Artist): </h1>
+    <form id="postForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="profession">Profession:</label><br>
+        <input type="text" id="profession" name="profession"><br><br>
+
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br><br>
+
+        <label for="artcategory">Art Category:</label><br>
+        <input type="text" id="artcategory" name="artcategory"><br><br>
+
+        <label for="bio">Bio:</label><br>
+        <input type="text" id="bio" name="bio"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br><br>
+
+        <label for="postImage">Add your profile image:</label><br>
+        <input type="file" id="postImage" name="postImage" accept="image/*"><br><br>
+
+        <input type="submit" value="Submit" id="submit">
+    </form>
+
+    <!-- Image preview element -->
+    <img id="profileImagePreview" alt="Profile Image Preview">
+
+    <!-- Geolocation Modal -->
+    <div id="geolocationModal">
+        <div class="modal-content">
+            <p>Would you like to allow access to your location?</p>
+            <div class="modal-buttons">
+                <button id="allowLocation">Allow</button>
+                <button id="denyLocation">Deny</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
