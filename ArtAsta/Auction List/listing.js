@@ -37,6 +37,7 @@ async function loadData() {
             const postElement = document.createElement('article');
             postElement.innerHTML = `
                 <img src="${imageUrl}" alt="${postData.Title || 'No title'}">
+                <div>
                 <h2>${postData.Title || 'Untitled Post'}</h2>
                 <p><strong>Artist:</strong> ${postData.Artist || 'Unknown'}</p>
                 <p><strong>Start Time:</strong> ${postData.StartTime || 'Unknown'}</p>
@@ -44,6 +45,7 @@ async function loadData() {
                 <p><strong>Bid Duration:</strong> ${postData.BidDur || 'N/A'} days</p>
                 <p><strong>Description:</strong> ${postData.Description || 'No description'}</p>
                 <button class="bid-button" data-id="${doc.id}">Place a Bid</button>
+                </div>
             `;
 
             postsContainer.appendChild(postElement);
