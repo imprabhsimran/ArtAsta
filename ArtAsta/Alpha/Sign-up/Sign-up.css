@@ -1,0 +1,10 @@
+h2{
+    text-align: center;
+}
+
+#signup-form-element{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    align-items: center;
+}
