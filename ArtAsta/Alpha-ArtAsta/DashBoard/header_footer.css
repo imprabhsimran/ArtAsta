@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Poetsen+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.4;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Header section  =========================================== */
+.mobile-header {
+  display: flex;
+  flex-flow: row wrap;
+}
+header .logo-name {
+  flex-basis: 100vw;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.logo-name img {
+  max-width: 80px;
+}
+.logo-name .orange {
+  color: orange;
+}
+.mobile-navigation input {
+  padding: 0.34rem;
+  margin-left: 2rem;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.mobile-navigation .fa-search {
+  position: absolute;
+  top: 107px;
+  left: 49px;
+  font-weight: bold;
+}
+
+.mobile-navigation .fa-bars {
+  font-weight: bolder;
+  color: black;
+  margin-left: 2rem;
+}
+
+/* .mobile-footer */
+.mobile-footer .logo-name {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.mobile-footer {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1rem;
+}
+.mobile-footer .logo-name {
+  flex-basis: 100vw;
+}
+.mobile-footer .footer-caption {
+  flex-basis: 100%;
+}
+.footer-nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  flex-basis: 100%;
+  margin-bottom: 1rem;
+}
+.mobile-footer .social-media-icons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.mobile-footer .social-media-icons a {
+  color: white;
+  background-color: black;
+  padding: 0.43rem;
+  border-radius: 5px;
+}
+.mobile-footer .social-media-icons h2 {
+  flex-basis: 100%;
+}
+
+/* footer ends */
+
+/* search Icon */
+.desktop-header .desktop-navigation {
+  position: relative;
+}
+.desktop-header .desktop-navigation input {
+  padding: 8px 35px 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 200px;
+  transition: width 0.3s ease-in-out;
+}
+
+.desktop-header .desktop-navigation .fa-search {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+}
+.desktop-header .desktop-navigation #search-field:focus {
+  width: 250px;
+}
+/* artist auction section */
+.artist-dropdown {
+  display: none;
+  position: absolute;
+}
+
+/* art on demand section */
+.art-on-demand-ul {
+  display: none;
+  position: absolute;
+}
+/* Profile Drop down */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+}
+
+@media only screen and (min-width: 900px) {
+  .desktop-header img {
+    max-width: 70px;
+  }
+  .mobile-header {
+    display: none;
+  }
+  .mobile-footer {
+    display: none;
+  }
+
+  /* Header Tablet */
+  .desktop-header {
+    display: flex;
+    background-color: black;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  .desktop-header img {
+    margin-left: 2rem;
+  }
+  .desktop-header .header-main-nav {
+    display: flex;
+    flex-basis: 93%;
+  }
+  .desktop-header .header-nav-elements {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    flex-basis: 100%;
+  }
+  .desktop-header .header-nav-elements li {
+    list-style: none;
+    position: relative;
+  }
+  .desktop-header .header-nav-elements li a {
+    text-decoration: none;
+    color: white;
+  }
+
+
+  /* Footer starts */
+  .tablet-footer .logo-name {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  
+  .tablet-footer {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 1rem;
+    background-color: black;
+  }
+  .tablet-footer .logo-name {
+    flex-basis: 100vw;
+  }
+  .tablet-footer .footer-caption {
+    flex-basis: 100%;
+  }
+  .tablet-nav {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    flex-basis: 100%;
+    margin-bottom: 1rem;
+  }
+  .tablet-footer .social-media-icons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+  .tablet-footer .social-media-icons a {
+    color: white;
+    background-color: white;
+    padding: 0.43rem;
+    border-radius: 5px;
+  }
+  .tablet-footer .social-media-icons h2 {
+    flex-basis: 100%;
+  }
+  .social-media-icons i{
+    color: black;
+  }
+  .tablet-footer .logo-name .black, .tablet-footer .footer-nav, .tablet-footer p{
+    color: white;
+  }
+
+
+
+  /* dropdown for artist */
+  .added_drpdown_list .artist-dropdown{
+    display: contents;
+    display: block;
+    background-color: black; 
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    min-width: 200px;
+  }
+
+  /* dropdown for artEnthusiast */
+  .artEnthu_drpdown_list .art-on-demand-ul{
+    display: contents;
+    display: block;
+    background-color: black; 
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    min-width: 280px;
+  }
+ 
+  .profile_drpdown_list .dropdown-menu{
+    display: block;
+    background-color: black; 
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    padding: 10px;
+    min-width: 250px;
+  }
+}
