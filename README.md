@@ -5,7 +5,7 @@ Welcome to Art Asta, the ultimate platform for artists to showcase and auction t
 # Features
 
 ## For Artists:
-**Post Your Paintings for Auction: Easily upload and manage your artwork, set starting bids, and auction durations.
+**Post Your Paintings for Auction: Easily upload and manage your artwork, set starting bids, and auction durations.<br>
 **Live Bidding: Watch as users place bids on your paintings in real-time.
 **Special Requests: Receive custom painting requests from users and quote your price.
 **Profile and Location: Share your artist profile and location with potential buyers.
