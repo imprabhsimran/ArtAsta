@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     async function submitOffer(postId, postIndex, offerPrice) {
         try {
             const currentUser = auth.currentUser;
-
+    
             const artistRef = collection(db, 'Artist');
             const querySnapshot = await getDocs(artistRef);
     
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     
             querySnapshot.forEach((doc) => {
                 const artistData = doc.data();
-                if (doc.id === postId || artistData.uid === currentArtistId) {
+                if (artistData.uid === currentArtistId) {
                     currentArtistName = artistData.Name || 'Unknown Artist';
                 }
             });
@@ -151,25 +151,47 @@ document.addEventListener('DOMContentLoaded', async function () {
     
             if (aodDocSnap.exists()) {
                 const posts = aodDocSnap.data().posts || [];
+                
+                // Find the post by index
+                const post = posts[postIndex];
+                if (!post) {
+                    console.error(`No post found at index ${postIndex}`);
+                    return;
+                }
     
-                posts[postIndex].Offers = posts[postIndex].Offers || [];
-                posts[postIndex].Offers.push({
-                    ArtistId: currentArtistId,
-                    ArtistName: currentArtistName,
-                    OfferedPrice: offerPrice,
-                });
+                // Initialize Offers if it doesn't exist
+                post.Offers = post.Offers || [];
     
+                // Find the existing offer from the current artist
+                const existingOfferIndex = post.Offers.findIndex(offer => offer.ArtistId === currentArtistId);
+    
+                if (existingOfferIndex !== -1) {
+                    // Update the existing offer
+                    post.Offers[existingOfferIndex].OfferedPrice = offerPrice;
+                    console.log(`Updated existing offer for artist ${currentArtistName} with price ${offerPrice}`);
+                } else {
+                    // Add a new offer
+                    post.Offers.push({
+                        ArtistId: currentArtistId,
+                        ArtistName: currentArtistName,
+                        OfferedPrice: offerPrice,
+                    });
+                    console.log(`Added new offer for artist ${currentArtistName} with price ${offerPrice}`);
+                }
+    
+                // Update the document in Firestore
                 await updateDoc(aodRef, { posts });
-                console.log("Offer added successfully!");
+                console.log("Offer added/updated successfully!");
     
                 loadPosts(); // Reload posts after offer submission
             } else {
                 console.log("No such document in Art-on-demand!");
             }
         } catch (error) {
-            console.error("Error adding offer: ", error);
+            console.error("Error adding/updating offer: ", error);
         }
     }
+    
 });
 
 
