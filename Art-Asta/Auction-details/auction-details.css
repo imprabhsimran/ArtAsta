@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
+
+body {
+    font-family: 'Urbanist', sans-serif;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.bid-section {
+    margin-top: 0.5rem;
+    height: 30px;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}

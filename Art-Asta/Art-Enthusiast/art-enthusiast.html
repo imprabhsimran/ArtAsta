@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer-info</title>
+    <link rel="stylesheet" href="art-enthusiast.css">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="art-enthusiast.js" type="module" defer></script>
+
+</head>
+
+<body>
+    <h1>Tell Us About Yourself:</h1>
+    <form id="buyer_info_form">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="bio">Bio:</label><br>
+        <textarea id="bio" name="bio" maxlength="50"></textarea><br>
+
+        <label for="mobile">Mobile Number:</label><br>
+        <input type="text" id="mobile" name="mobile" required><br>
+
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br>
+
+        <label for="profileImage">Add your profile image:</label><br>
+        <input type="file" id="profileImage" name="profileImage" accept="image/*" required><br><br>
+
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <div class="message-field"></div>
+
+</body>
+
+</html>
