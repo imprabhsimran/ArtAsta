@@ -406,8 +406,6 @@ main {
 
 #art-on-demand article h2 {
   margin: 0;
-
-  /* Text will be truncated with '...' for article titles when it exceeds container. NEEDS FURTHER TESTING */
   display: inline-block;
   max-width: 100%;
   overflow: hidden;
@@ -432,21 +430,6 @@ main {
 }
 
 /********************* END ART ON DEMAND SECTION *********************/
-
-/* Auction Section GRID LAYOUT*/
-/* #auctions{
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(7, auto);
-}
-
-#auctions article{
-  grid-row: 1/8;
-  display: grid;
-  grid-template-rows: subgrid;
-} */
-
-
 /* Rendering of scroll-bar for FIREFOX */
 @-moz-document url-prefix() {
 
@@ -571,21 +554,16 @@ html .header-mobile-nav-elements li a {
 .search-container i.fas.fa-search {
   font-size: 18px;
   color: #6c757d;
-  /* Gray color for the icon */
   margin-left: 8px;
-  /* Space between the input and the icon */
   cursor: pointer;
-  /* Pointer cursor on hover */
 }
 
 .search-container input[type="text"]::placeholder {
   color: #6c757d;
-  /* Placeholder text color */
 }
 
 .search-container input[type="text"]:focus {
   border: 1px solid #007bff;
-  /* Blue border on focus */
 }
 
 /* changes end of search */
