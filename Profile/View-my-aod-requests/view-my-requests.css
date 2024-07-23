@@ -14,7 +14,6 @@ main {
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     text-align: center;
 }
 
@@ -43,7 +42,6 @@ h1{
     height: 200px;
     border-radius: 10px;
     margin-bottom: 15px;
-    
 }
 
 .post h2 {
@@ -80,6 +78,7 @@ h1{
 .post {
     margin-top: 2rem;
 }
+
 @media (max-width: 768px) {
     .post {
         padding: 15px;
@@ -94,3 +93,4 @@ h1{
         font-size: 0.9rem;
     }
 }
+
