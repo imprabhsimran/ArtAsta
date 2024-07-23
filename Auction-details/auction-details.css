@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.6;
+  color: black;
+}
+
+.text-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  grid-column: 3/-1;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.h1span {
+  color: #f7804a;
+  grid-column: 1/-1;
+  font-size: 150%;
+}
+
+.auction-post {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr 2fr;
+  gap: 20px;
+  grid-column: 3 / -1;
+}
+
+.auction-post h2 {
+  font-size: 18px;
+  margin-top: 0;
+  color: #f7804a;
+  font-size: 1.5rem;
+}
+
+.auction-post p {
+  margin-bottom: 10px;
+}
+
+.auction-post .bid-section {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.auction-post .bid-section input[type="number"] {
+  height: 35px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.auction-post .bid-section button[type="button"] {
+  background-color: #f7804a;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auction-post .bid-section button[type="button"]:hover {
+  background-color: #ff9900;
+}
+
+.auction-post .highest-bidder {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+#place-bid-button {
+  background-color: black;
+  padding: 0.5rem;
+  color: white;
+  font-size: 1rem;
+}
+
+.bid-placed {
+  background-color: green !important;
+  color: white !important;
+}
+
+@media screen and (max-width: 700px) {
+  .auction-post {
+    grid-template-columns: 1fr;
+  }
+
+  .text-box {
+    grid-column: 1/-1;
+  }
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 500px;
+  text-align: center;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ok-button {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ok-button:hover {
+  background-color: darkorange;
+}

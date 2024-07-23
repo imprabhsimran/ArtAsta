@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Overview</title>
+    <link rel="stylesheet" href="artist-overview.css">     
+    <link rel="stylesheet" href="/DashBoard/header_footer.css">
+    <script src="/DashBoard/artist_header.js" type="module" defer></script>
+    <script type="module" src="/DashBoard/art_enthu_header.js" defer></script>
+    <script type="module" src="artist-overview.js" defer></script> 
+</head>
+<body>
+    <header id="header"></header>
+
+    <div id="profile-info"></div>
+
+    <footer-content></footer-content>
+</body>
+
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  </script>
+  
+<script src="/DashBoard/dropdown_for_all.js" type="module" ></script>
+</html> 

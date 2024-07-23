@@ -1,0 +1,33 @@
+main h1{
+    color: #f7804a;
+    margin-bottom: 1rem;
+}
+#bidingContainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+   
+
+}
+ 
+#bidingContainer article {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+ul li{
+    list-style: none;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+main{
+    margin: 20px;
+}

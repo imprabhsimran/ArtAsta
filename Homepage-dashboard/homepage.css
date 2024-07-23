@@ -1,0 +1,711 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
+
+body {
+  font-family: 'Urbanist', 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#role-container {
+  color: #f7804A;
+  font-size: 2.5rem;
+  margin-left: 0rem;
+}
+
+#role-container p {
+  margin-left: 2rem;
+}
+
+#auctionsWrapper,
+#artistsWrapper,
+#artOnDemandWrapper {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#auctions,
+#artists,
+#art-on-demand {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#auctions article,
+#artists article,
+#art-on-demand article {
+  flex-basis: calc(25% - 20px);
+  margin: 10px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#auctions article img,
+#art-on-demand article img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+h1 {
+  color: #f7804A;
+  margin-left: 1rem;
+}
+
+#auctions article h2,
+#artists article h2,
+#art-on-demand article h2 {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #f7804A;
+}
+
+#auctions article p,
+#artists article p,
+#art-on-demand article p {
+  font-size: 1rem;
+  color: #000;
+}
+
+#auctions button,
+#artists button,
+#art-on-demand button {
+  background-color: #f7804A;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+#auctions button:hover,
+#artists button:hover,
+#art-on-demand button:hover {
+  background-color: #333;
+}
+
+.artist-profile {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.artwork-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.artwork-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+
+/******************** Additional CSS by Andrei ***************************/
+
+body {
+  min-width: 280px;
+
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  width: auto;
+  max-width: none;
+}
+
+#role-container {
+  padding: 20px;
+  text-align: center;
+}
+
+#role-container p {
+  margin: 0;
+  font-weight: 900;
+}
+
+
+
+
+/********************* AUCTION SECTION *********************/
+#auctionsWrapper {
+  padding: 0;
+  margin: 0;
+}
+
+#auctionsWrapper a {
+  text-align: right;
+  color: #707070;
+  font-size: 24px;
+}
+
+#auctionsWrapper a:hover {
+  color: #f7804A;
+}
+
+#auctionsWrapper .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 20px;
+}
+
+#auctions {
+  grid-column: 1/3;
+  gap: 10px;
+  flex-wrap: nowrap;
+
+  overflow-x: auto;
+  overflow-y: visible;
+
+  padding: 20px;
+}
+
+#auctions article {
+  margin: 0;
+  min-width: 240px;
+  max-width: 240px;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#auctions article:hover {
+  transform: translateY(-5px);
+  position: relative;
+  z-index: 1000;
+}
+
+#auctions article h2 {
+  margin: 0;
+
+  /* Text will be truncated with '...' for article titles when it exceeds container. NEEDS FURTHER TESTING */
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#auctions article img {
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+}
+
+#auctions article p:first-of-type {
+  min-height: 68PX;
+  max-height: 68PX;
+
+  /* This snippet will ensure that the paragraph truncates beyond 4 lines. Works fine in Chrome, Firefox, Edge */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* -webkit-line-clamp: 3; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#auctions article p:last-of-type {
+  font-weight: 900;
+}
+
+#auctions article button {
+  width: 100%;
+}
+
+#auctions article button:disabled {
+  background-color: #B7B7B7;
+  cursor: inherit;
+}
+
+#auctions article button:disabled:hover {
+  background-color: #B7B7B7;
+  cursor: inherit;
+}
+
+/********************* END AUCTION SECTION *********************/
+
+
+
+
+/********************* ARTISTS SECTION *********************/
+#artistsWrapper {
+  padding: 0;
+  margin: 0;
+}
+
+#artistsWrapper .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 20px;
+}
+
+#artistsWrapper a {
+  text-align: right;
+  color: #707070;
+  font-size: 24px;
+}
+
+#artistsWrapper a:hover {
+  color: #f7804A;
+}
+
+#artists {
+  grid-column: 1/3;
+  gap: 10px;
+  flex-wrap: nowrap;
+
+  overflow-x: auto;
+  overflow-y: visible;
+
+  padding: 20px;
+}
+
+#artists article {
+  margin: 0;
+  min-width: 240px;
+  max-width: 240px;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#artists article:hover {
+  transform: translateY(-5px);
+  position: relative;
+  z-index: 1000;
+}
+
+#artists article h2 {
+  margin: 0;
+
+  /* Text will be truncated with '...' for article titles when it exceeds container. NEEDS FURTHER TESTING */
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#artists article p:first-of-type {
+  /* Text will be truncated with '...' for article titles when it exceeds container. NEEDS FURTHER TESTING */
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#artists .artwork-section img {
+  border-radius: 10px 10px 0 0;
+}
+
+#artists .artwork-section img:not(:nth-of-type(1)) {
+  display: none;
+}
+
+#artists .artist-profile {
+  min-width: 450px;
+}
+
+#artists .artist-profile .artwork-section {
+  margin: 0;
+}
+
+#artists .profile-section div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/********************* END ARTISTS SECTION *********************/
+
+
+
+/********************* ART ON DEMAND SECTION *********************/
+#artOnDemandWrapper {
+  padding: 0;
+  margin: 0;
+}
+
+#artOnDemandWrapper .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 20px;
+}
+
+#artOnDemandWrapper a {
+  text-align: right;
+  color: #707070;
+  font-size: 24px;
+}
+
+#artOnDemandWrapper a:hover {
+  color: #f7804A;
+}
+
+#art-on-demand {
+  grid-column: 1/3;
+  gap: 10px;
+  flex-wrap: nowrap;
+
+  overflow-x: auto;
+  overflow-y: visible;
+
+  padding: 20px;
+}
+
+#art-on-demand article {
+  margin: 0;
+  min-width: 240px;
+  max-width: 240px;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#art-on-demand article:hover {
+  transform: translateY(-5px);
+  position: relative;
+  z-index: 1000;
+}
+
+#art-on-demand article h2 {
+  margin: 0;
+
+  /* Text will be truncated with '...' for article titles when it exceeds container. NEEDS FURTHER TESTING */
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#art-on-demand article img {
+  border-radius: 10px 10px 0 0;
+}
+
+#art-on-demand article {
+  min-height: 350px;
+}
+
+#art-on-demand article p {
+  /* This snippet will ensure that the paragraph truncates beyond 4 lines. Works fine in Chrome, Firefox, Edge */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* -webkit-line-clamp: 4; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/********************* END ART ON DEMAND SECTION *********************/
+
+
+
+
+
+/* Auction Section GRID LAYOUT*/
+/* #auctions{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, auto);
+}
+
+#auctions article{
+  grid-row: 1/8;
+  display: grid;
+  grid-template-rows: subgrid;
+} */
+
+/* Artist Section GRID LAYOUT*/
+/* #artists{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, auto);
+}
+
+#artists .artist-profile{
+  grid-row: 1/5;
+  display: grid;
+  grid-template-rows: subgrid;
+}
+
+#artists .artist-profile .profile-section{
+  grid-row: 2/5;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#artists .artist-profile .profile-section img{
+  grid-row: 1/5;
+  justify-self: center;
+}
+
+#artists .artist-profile .profile-section div{
+  grid-column: 2;
+  grid-row: 1/5;
+  display: grid;
+  grid-template-rows: subgrid;
+} */
+
+/* Art-on-Demand section GRID LAYOUT*/
+/* #art-on-demand{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto auto auto;
+}
+
+#art-on-demand article{
+  grid-row: 1/4;
+  display: grid;
+  grid-template-rows: subgrid;
+
+}
+
+#art-on-demand article .artwork-details{
+  grid-row: 2/4;
+  display: grid;
+  grid-template-rows: subgrid;
+} */
+
+
+/* FOR TESTING */
+/* #auctions article:nth-of-type(1), #auctions article:nth-of-type(2){
+  display: none;
+} */
+
+/* #art-on-demand article:nth-of-type(1),#art-on-demand article:nth-of-type(2),#art-on-demand article:nth-of-type(3),#art-on-demand article:nth-of-type(4){
+  display: none;
+} */
+
+
+
+
+
+/* Rendering of scroll-bar for FIREFOX */
+@-moz-document url-prefix() {
+
+  #auctions,
+  #artists,
+  #art-on-demand {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+}
+
+/* Rendering of scroll-bar for CHROME, SAFARI, EDGE */
+#auctions::-webkit-scrollbar,
+#artists::-webkit-scrollbar,
+#art-on-demand::-webkit-scrollbar {
+  height: 12px;
+}
+
+#auctions::-webkit-scrollbar-track,
+#artists::-webkit-scrollbar-track,
+#art-on-demand::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+}
+
+#auctions::-webkit-scrollbar-thumb,
+#artists::-webkit-scrollbar-thumb,
+#art-on-demand::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+#auctions::-webkit-scrollbar-thumb:hover,
+#artists::-webkit-scrollbar-thumb:hover,
+#art-on-demand::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ************************************************* */
+
+
+
+
+
+
+
+
+
+/* Extended Nav Menu for Mobile */
+html .mobile_navigation_reveal .header-mobile-main-nav {
+  display: block;
+
+  background-color: white;
+
+  border-radius: 10px;
+  width: 50vw;
+  min-width: 176px;
+  right: 0;
+}
+
+html .header-mobile-nav-elements {
+  display: block;
+  padding: 2rem;
+}
+
+.header-mobile-nav-elements li {
+  text-align: left;
+  display: flex;
+  align-items: center;
+
+  border-bottom: 2px solid #F3F3F3;
+
+
+  position: relative;
+}
+
+.header-mobile-nav-elements li:nth-of-type(1) {
+  border-top: 2px solid #F3F3F3;
+}
+
+/* The 6th li is empty therefore this needs to be hidden */
+.header-mobile-nav-elements li:nth-of-type(6) {
+  display: none;
+}
+
+html .header-mobile-nav-elements li a {
+  font-size: 16px;
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  color: black;
+}
+
+
+/* This code provides a right chevron arrow with each nav item */
+.header-mobile-nav-elements li a::after {
+  content: "\f054";
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+
+  position: absolute;
+  right: 0;
+}
+
+
+/* changes made by shivam for search */
+
+
+.header-wrapped-search {
+  display: flex;
+  justify-content: space-evenly;
+  /* Space out the child elements */
+  align-items: center;
+  /* Center items vertically */
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  /* Light background color for the header */
+  border-bottom: 1px solid #dee2e6;
+  /* Subtle border */
+}
+
+.desktop-navigation {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  /* White background for the search box */
+  border-radius: 5px;
+  /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+  padding: 5px 10px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  /* Rounded corners for the input */
+  flex: 1;
+  /* Allow input to grow */
+}
+
+.search-container i.fas.fa-search {
+  font-size: 18px;
+  color: #6c757d;
+  /* Gray color for the icon */
+  margin-left: 8px;
+  /* Space between the input and the icon */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+}
+
+.search-container input[type="text"]::placeholder {
+  color: #6c757d;
+  /* Placeholder text color */
+}
+
+.search-container input[type="text"]:focus {
+  border: 1px solid #007bff;
+  /* Blue border on focus */
+}
+
+/* changes end of search */
