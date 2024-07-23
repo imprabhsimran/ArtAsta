@@ -424,19 +424,14 @@ main {
 }
 
 #art-on-demand article p {
-  /* This snippet will ensure that the paragraph truncates beyond 4 lines. Works fine in Chrome, Firefox, Edge */
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  /* -webkit-line-clamp: 4; */
+  -webkit-line-clamp: 4;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 /********************* END ART ON DEMAND SECTION *********************/
-
-
-
-
 
 /* Auction Section GRID LAYOUT*/
 /* #auctions{
@@ -450,71 +445,6 @@ main {
   display: grid;
   grid-template-rows: subgrid;
 } */
-
-/* Artist Section GRID LAYOUT*/
-/* #artists{
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(4, auto);
-}
-
-#artists .artist-profile{
-  grid-row: 1/5;
-  display: grid;
-  grid-template-rows: subgrid;
-}
-
-#artists .artist-profile .profile-section{
-  grid-row: 2/5;
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-template-columns: 1fr 1fr;
-}
-
-#artists .artist-profile .profile-section img{
-  grid-row: 1/5;
-  justify-self: center;
-}
-
-#artists .artist-profile .profile-section div{
-  grid-column: 2;
-  grid-row: 1/5;
-  display: grid;
-  grid-template-rows: subgrid;
-} */
-
-/* Art-on-Demand section GRID LAYOUT*/
-/* #art-on-demand{
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: auto auto auto;
-}
-
-#art-on-demand article{
-  grid-row: 1/4;
-  display: grid;
-  grid-template-rows: subgrid;
-
-}
-
-#art-on-demand article .artwork-details{
-  grid-row: 2/4;
-  display: grid;
-  grid-template-rows: subgrid;
-} */
-
-
-/* FOR TESTING */
-/* #auctions article:nth-of-type(1), #auctions article:nth-of-type(2){
-  display: none;
-} */
-
-/* #art-on-demand article:nth-of-type(1),#art-on-demand article:nth-of-type(2),#art-on-demand article:nth-of-type(3),#art-on-demand article:nth-of-type(4){
-  display: none;
-} */
-
-
-
 
 
 /* Rendering of scroll-bar for FIREFOX */
