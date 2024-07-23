@@ -12,7 +12,7 @@ h1,h2{
 }
 
 .profile-card {
-    border: 1px solid #ccc;
+    border: 2px solid #ababab;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -75,3 +75,4 @@ h1,h2{
     object-fit: cover;
     border-radius: 5px;
 }
+
