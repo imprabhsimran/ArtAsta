@@ -134,10 +134,8 @@ h1 {
 
 
 /******************** Additional CSS by Andrei ***************************/
-
 body {
   min-width: 280px;
-
 }
 
 h1 {
@@ -158,8 +156,6 @@ main {
   margin: 0;
   font-weight: 900;
 }
-
-
 
 
 /********************* AUCTION SECTION *********************/
@@ -219,8 +215,6 @@ main {
 
 #auctions article h2 {
   margin: 0;
-
-  /* Text will be truncated with '...' for article titles when it exceeds container. NEEDS FURTHER TESTING */
   display: inline-block;
   max-width: 100%;
   overflow: hidden;
@@ -234,13 +228,11 @@ main {
 }
 
 #auctions article p:first-of-type {
-  min-height: 68PX;
-  max-height: 68PX;
-
-  /* This snippet will ensure that the paragraph truncates beyond 4 lines. Works fine in Chrome, Firefox, Edge */
+  min-height: 68px;
+  max-height: 68px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  /* -webkit-line-clamp: 3; */
+  -webkit-line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
 }
