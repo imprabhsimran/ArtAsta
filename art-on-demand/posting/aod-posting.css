@@ -14,7 +14,6 @@ header, footer-content {
     width: 100%;
 }
 
-
 main {
     max-width: 500px;
     width: 100%;
@@ -75,6 +74,7 @@ input[type="submit"]:hover {
 #postImage {
     display: none;
 }
+
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -103,4 +103,6 @@ input[type="submit"]:hover {
         padding: 8px;
     }
 }
+
+
 
