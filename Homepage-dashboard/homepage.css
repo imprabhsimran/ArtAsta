@@ -487,20 +487,10 @@ main {
 
 /* ************************************************* */
 
-
-
-
-
-
-
-
-
 /* Extended Nav Menu for Mobile */
 html .mobile_navigation_reveal .header-mobile-main-nav {
   display: block;
-
   background-color: white;
-
   border-radius: 10px;
   width: 50vw;
   min-width: 176px;
@@ -516,10 +506,7 @@ html .header-mobile-nav-elements {
   text-align: left;
   display: flex;
   align-items: center;
-
   border-bottom: 2px solid #F3F3F3;
-
-
   position: relative;
 }
 
@@ -527,7 +514,6 @@ html .header-mobile-nav-elements {
   border-top: 2px solid #F3F3F3;
 }
 
-/* The 6th li is empty therefore this needs to be hidden */
 .header-mobile-nav-elements li:nth-of-type(6) {
   display: none;
 }
@@ -537,47 +523,34 @@ html .header-mobile-nav-elements li a {
   width: 100%;
   padding-top: 24px;
   padding-bottom: 24px;
-
   color: black;
 }
-
 
 /* This code provides a right chevron arrow with each nav item */
 .header-mobile-nav-elements li a::after {
   content: "\f054";
   font-family: 'Font Awesome 6 Free';
   font-weight: 900;
-
   position: absolute;
   right: 0;
 }
 
-
-/* changes made by shivam for search */
-
-
+/* Changes made by shivam for search */
 .header-wrapped-search {
   display: flex;
   justify-content: space-evenly;
-  /* Space out the child elements */
   align-items: center;
-  /* Center items vertically */
   padding: 10px 20px;
   background-color: #f8f9fa;
-  /* Light background color for the header */
   border-bottom: 1px solid #dee2e6;
-  /* Subtle border */
 }
 
 .desktop-navigation {
   display: flex;
   align-items: center;
   background-color: #ffffff;
-  /* White background for the search box */
   border-radius: 5px;
-  /* Rounded corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow */
   padding: 5px 10px;
 }
 
@@ -592,9 +565,7 @@ html .header-mobile-nav-elements li a {
   padding: 8px 12px;
   font-size: 16px;
   border-radius: 5px;
-  /* Rounded corners for the input */
   flex: 1;
-  /* Allow input to grow */
 }
 
 .search-container i.fas.fa-search {
