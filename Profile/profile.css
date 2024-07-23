@@ -36,14 +36,13 @@ a {
 
 #profile-info {
     padding: 20px;
-    text-align: center; 
-    min-height: 90vh;
+    text-align: center; /* Center align text */
 }
 
 .profile-header {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center; /* Center align items */
     gap: 1.5rem;
     width: 100%;
 }
@@ -54,13 +53,13 @@ a {
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #ddd;
-    margin: 0 auto; 
+    margin: 0 auto; /* Center the profile picture */
 }
 
 .profile-details {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center; /* Center align items */
     gap: 0.5rem;
 }
 
@@ -93,7 +92,6 @@ a {
     width: 100%;
     padding: 0 1rem;
     justify-content: center;
-    margin-top: 2rem;
 }
 
 .artwork-grid h1 {
@@ -101,7 +99,7 @@ a {
     margin-bottom: 1rem;
     text-align: center;
     font-size: 1.5rem;
-    color: #f7804a;
+    color: #333;
 }
 
 .artwork-grid img {
@@ -116,4 +114,100 @@ a {
 .artwork-grid img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.add-artwork {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 300px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    margin-top: 1rem;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 1rem;
+}
+
+.add-artwork input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.add-artwork::before {
+    font-size: 4rem;
+    color: white;
+    background-color: #f7804a;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+#upload-artwork-button, #cancel-upload-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#upload-artwork-button {
+    background-color: #f7804a;
+    color: white;
+}
+
+#upload-artwork-button:hover {
+    background-color: #e6703d;
+}
+
+#cancel-upload-button {
+    background-color: #ccc;
+    color: black;
+}
+
+#cancel-upload-button:hover {
+    background-color: #aaa;
+}
+
+.add-artwork-preview {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+.add-artwork-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #f7804a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-artwork-button:hover {
+    background-color: #e6703d;
 }
