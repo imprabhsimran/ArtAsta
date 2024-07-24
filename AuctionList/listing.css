@@ -217,6 +217,21 @@ button:hover {
     ;
 }
 
+
+.card-content .values {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: var(--color-primary);
+
+}
+
+.card-content .values>div:first-child {
+    margin-right: 2px;
+}
+
+.card-content .values>div:last-child {
+    margin-left: 2px;
+}
 .card-conteiner {
     cursor: default;
     --color-primary: #3f4656;
@@ -234,21 +249,6 @@ button:hover {
 .card-content {
     display: inline-block;
     vertical-align: top;
-}
-
-.card-content .values {
-    margin-bottom: 1rem;
-    font-weight: 500;
-    color: var(--color-primary);
-
-}
-
-.card-content .values>div:first-child {
-    margin-right: 2px;
-}
-
-.card-content .values>div:last-child {
-    margin-left: 2px;
 }
 
 .card-content {
