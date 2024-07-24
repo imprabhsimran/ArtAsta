@@ -155,6 +155,14 @@ textarea#bio {
     height: calc(3 * 1.5em + 2rem);
 }
 
+button#submit {
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    height: auto;
+    padding: 1rem;
+}
 input#address {
     margin-bottom: 2rem;
 }
@@ -168,14 +176,7 @@ input#profileImage {
     box-sizing: border-box;
 }
 
-button#submit {
-    width: 100%;
-    background-color: black;
-    color: white;
-    font-size: 16px;
-    height: auto;
-    padding: 1rem;
-}
+
 
 button#submit:hover {
     background-color: #B7B7B7;
