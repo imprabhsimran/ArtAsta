@@ -40,6 +40,19 @@ label {
     margin-bottom: 5px;
 }
 
+
+
+input[type="submit"] {
+    background-color: #f7804a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
 input[type="text"],
 input[type="date"],
 textarea {
@@ -54,19 +67,6 @@ textarea {
 input[type="file"] {
     font-size: 1rem;
 }
-
-input[type="submit"] {
-    background-color: #f7804a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
-}
-
 input[type="submit"]:hover {
     background-color: #f7804a;
 }
