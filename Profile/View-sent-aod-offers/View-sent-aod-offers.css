@@ -14,16 +14,18 @@ header {
 main {
     padding: 1rem;
 }
+/*  By Hemant */
+
+
+h1 {
+    margin-left: 1rem;
+    color: #f7804a;
+}
 
 #postsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
-}
-
-h1 {
-    margin-left: 1rem;
-    color: #f7804a;
 }
 
 .post {
