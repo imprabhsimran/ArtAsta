@@ -1,569 +1,298 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
 
 body {
-  font-family: 'Urbanist', 'Times New Roman', Times, serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+    font-family: 'Urbanist', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+header {
+    color: #fff;
 }
 
 main {
-  max-width: 1200px;
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.header-wrapped-search {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row-reverse wrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    width: 300px;
+    /* Adjust width as needed */
+}
+
+.search-container .fas.fa-search {
+    padding: 10px;
+    background-color: #f7804A;
+    color: white;
+    border: 1px solid #f7804A;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container .fas.fa-search:hover {
+    background-color: #333;
+    border: 1px solid #333;
 }
 
 #role-container {
-  color: #f7804A;
-  font-size: 2.5rem;
-  margin-left: 0rem;
+    color: #f7804A;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-#role-container p {
-  margin-left: 2rem;
+.title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-#auctionsWrapper,
-#artistsWrapper,
-#artOnDemandWrapper {
-  padding: 20px;
-  border-radius: 10px;
+.title-wrapper h1 {
+    color: #f7804A;
+    margin: 0;
+}
+
+.title-wrapper a {
+    text-decoration: none;
+    color: #707070;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.title-wrapper a:hover {
+    color: #f7804A;
+}
+
+.section-wrapper {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 #auctions,
 #artists,
 #art-on-demand {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#auctions article,
-#artists article,
-#art-on-demand article {
-  flex-basis: calc(25% - 20px);
-  margin: 10px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#auctions article img,
-#art-on-demand article img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-}
-
-h1 {
-  color: #f7804A;
-  margin-left: 1rem;
-}
-
-#auctions article h2,
-#artists article h2,
-#art-on-demand article h2 {
-  font-size: 20px;
-  margin-top: 10px;
-  color: #f7804A;
-}
-
-#auctions article p,
-#artists article p,
-#art-on-demand article p {
-  font-size: 1rem;
-  color: #000;
-}
-
-#auctions button,
-#artists button,
-#art-on-demand button {
-  background-color: #f7804A;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 1rem;
-}
-
-#auctions button:hover,
-#artists button:hover,
-#art-on-demand button:hover {
-  background-color: #333;
-}
-
-.artist-profile {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.artwork-section {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.artwork-image {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.profile-section {
-  display: flex;
-  align-items: center;
-}
-
-.profile-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 20px;
-}
-
-
-/******************** Additional CSS by Andrei ***************************/
-body {
-  min-width: 280px;
-}
-
-h1 {
-  margin: 0;
-}
-
-main {
-  width: auto;
-  max-width: none;
-}
-
-#role-container {
-  padding: 20px;
-  text-align: center;
-}
-
-#role-container p {
-  margin: 0;
-  font-weight: 900;
-}
-
-
-/********************* AUCTION SECTION *********************/
-#auctionsWrapper {
-  padding: 0;
-  margin: 0;
-}
-
-#auctionsWrapper a {
-  text-align: right;
-  color: #707070;
-  font-size: 24px;
-}
-
-#auctionsWrapper a:hover {
-  color: #f7804A;
-}
-
-#auctionsWrapper .title-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin: 0 20px;
-}
-
-#auctions {
-  grid-column: 1/3;
-  gap: 10px;
-  flex-wrap: nowrap;
-
-  overflow-x: auto;
-  overflow-y: visible;
-
-  padding: 20px;
-}
-
-#auctions article {
-  margin: 0;
-  min-width: 240px;
-  max-width: 240px;
-
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-#auctions article:hover {
-  transform: translateY(-5px);
-  position: relative;
-  z-index: 1000;
-}
-
-#auctions article h2 {
-  margin: 0;
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-#auctions article img {
-  border-radius: 10px 10px 0 0;
-  object-fit: cover;
-}
-
-#auctions article p:first-of-type {
-  min-height: 68px;
-  max-height: 68px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-#auctions article p:last-of-type {
-  font-weight: 900;
-}
-
-#auctions article button {
-  width: 100%;
-}
-
-#auctions article button:disabled {
-  background-color: #B7B7B7;
-  cursor: inherit;
-}
-
-#auctions article button:disabled:hover {
-  background-color: #B7B7B7;
-  cursor: inherit;
-}
-
-/********************* END AUCTION SECTION *********************/
-
-/********************* ARTISTS SECTION *********************/
-#artistsWrapper {
-  padding: 0;
-  margin: 0;
-}
-
-#artistsWrapper .title-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 20px;
-}
-
-#artistsWrapper a {
-  text-align: right;
-  color: #707070;
-  font-size: 24px;
-}
-
-#artistsWrapper a:hover {
-  color: #f7804A;
-}
-
-#artists {
-  grid-column: 1/3;
-  gap: 10px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: visible;
-  padding: 20px;
-}
-
-#artists article {
-  margin: 0;
-  min-width: 240px;
-  max-width: 240px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-#artists article:hover {
-  transform: translateY(-5px);
-  position: relative;
-  z-index: 1000;
-}
-
-#artists article h2 {
-  margin: 0;
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-#artists article p:first-of-type {
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-#artists .artwork-section img {
-  border-radius: 10px 10px 0 0;
-}
-
-#artists .artwork-section img:not(:nth-of-type(1)) {
-  display: none;
-}
-
-#artists .artist-profile {
-  min-width: 450px;
-}
-
-#artists .artist-profile .artwork-section {
-  margin: 0;
-}
-
-#artists .profile-section div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-/********************* END ARTISTS SECTION *********************/
-
-/********************* ART ON DEMAND SECTION *********************/
-#artOnDemandWrapper {
-  padding: 0;
-  margin: 0;
-}
-
-#artOnDemandWrapper .title-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin: 0 20px;
-}
-
-#artOnDemandWrapper a {
-  text-align: right;
-  color: #707070;
-  font-size: 24px;
-}
-
-#artOnDemandWrapper a:hover {
-  color: #f7804A;
-}
-
-#art-on-demand {
-  grid-column: 1/3;
-  gap: 10px;
-  flex-wrap: nowrap;
-
-  overflow-x: auto;
-  overflow-y: visible;
-
-  padding: 20px;
-}
-
-#art-on-demand article {
-  margin: 0;
-  min-width: 240px;
-  max-width: 240px;
-
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-#art-on-demand article:hover {
-  transform: translateY(-5px);
-  position: relative;
-  z-index: 1000;
-}
-
-#art-on-demand article h2 {
-  margin: 0;
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-#art-on-demand article img {
-  border-radius: 10px 10px 0 0;
-}
-
-#art-on-demand article {
-  min-height: 350px;
-}
-
-#art-on-demand article p {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/********************* END ART ON DEMAND SECTION *********************/
-/* Rendering of scroll-bar for FIREFOX */
-@-moz-document url-prefix() {
-
-  #auctions,
-  #artists,
-  #art-on-demand {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
     scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
-  }
+    scrollbar-color: #f7804A #f4f4f4;
 }
 
-/* Rendering of scroll-bar for CHROME, SAFARI, EDGE */
 #auctions::-webkit-scrollbar,
 #artists::-webkit-scrollbar,
 #art-on-demand::-webkit-scrollbar {
-  height: 12px;
+    height: 10px;
 }
 
 #auctions::-webkit-scrollbar-track,
 #artists::-webkit-scrollbar-track,
 #art-on-demand::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 6px;
+    background: #f4f4f4;
 }
 
 #auctions::-webkit-scrollbar-thumb,
 #artists::-webkit-scrollbar-thumb,
 #art-on-demand::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 6px;
+    background-color: #f7804A;
+    border-radius: 10px;
+    border: 1px solid #f4f4f4;
 }
 
-#auctions::-webkit-scrollbar-thumb:hover,
-#artists::-webkit-scrollbar-thumb:hover,
-#art-on-demand::-webkit-scrollbar-thumb:hover {
-  background: #555;
+#auctions article,
+#artists article,
+#art-on-demand article {
+    flex: 0 0 25%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ************************************************* */
-
-/* Extended Nav Menu for Mobile */
-html .mobile_navigation_reveal .header-mobile-main-nav {
-  display: block;
-  background-color: white;
-  border-radius: 10px;
-  width: 50vw;
-  min-width: 176px;
-  right: 0;
+#auctions article:hover,
+#artists article:hover,
+#art-on-demand article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-html .header-mobile-nav-elements {
-  display: block;
-  padding: 2rem;
+#auctions article img, #art-on-demand article img, .artwork-image {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.header-mobile-nav-elements li {
-  text-align: left;
-  display: flex;
-  align-items: center;
-  border-bottom: 2px solid #F3F3F3;
-  position: relative;
+#auctions article h2,
+#artists article h2,
+#art-on-demand article h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #333;
 }
 
-.header-mobile-nav-elements li:nth-of-type(1) {
-  border-top: 2px solid #F3F3F3;
+#auctions article p,
+#artists article p,
+#art-on-demand article p {
+    font-size: 1rem;
+    color: #666;
 }
 
-.header-mobile-nav-elements li:nth-of-type(6) {
-  display: none;
+#auctions button,
+#artists button,
+#art-on-demand button {
+    background-color: #f7804A;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    align-self: center;
 }
 
-html .header-mobile-nav-elements li a {
-  font-size: 16px;
-  width: 100%;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  color: black;
+#auctions button:hover,
+#artists button:hover,
+#art-on-demand button:hover {
+    background-color: #333;
 }
 
-/* This code provides a right chevron arrow with each nav item */
-.header-mobile-nav-elements li a::after {
-  content: "\f054";
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  position: absolute;
-  right: 0;
+#auctions article button:disabled {
+    background-color: #B7B7B7;
+    cursor: not-allowed;
 }
 
-/* Changes made by shivam for search */
-.header-wrapped-search {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
+.artist-profile {
+    display: flex;
+    flex-direction: column;
 }
 
-.desktop-navigation {
-  display: flex;
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 5px 10px;
+.artwork-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.search-container {
-  display: flex;
-  align-items: center;
+.profile-section {
+    display: flex;
+    align-items: center;
 }
 
-.search-container input[type="text"] {
-  border: none;
-  outline: none;
-  padding: 8px 12px;
-  font-size: 16px;
-  border-radius: 5px;
-  flex: 1;
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
 }
 
-.search-container i.fas.fa-search {
-  font-size: 18px;
-  color: #6c757d;
-  margin-left: 8px;
-  cursor: pointer;
+footer-content {
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
 }
 
-.search-container input[type="text"]::placeholder {
-  color: #6c757d;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.search-container input[type="text"]:focus {
-  border: 1px solid #007bff;
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
 }
 
-/* changes end of search */
+.modal-ok-button {
+    background-color: #f7804A;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.modal-ok-button:hover {
+    background-color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .search-container input[type="text"] {
+        width: 100%;
+        margin-left: 2rem;
+    }
+
+    .header-wrapped-search {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-container {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    #auctions article,
+    #artists article,
+    #art-on-demand article {
+        flex: 0 0 45%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #auctions article,
+    #artists article,
+    #art-on-demand article {
+        flex: 0 0 90%;
+    }
+}
