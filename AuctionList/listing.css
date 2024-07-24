@@ -291,22 +291,7 @@ button:hover {
     background: none;
 }
 
-.input-ranges[type='range']::-webkit-slider-thumb {
-    position: relative;
-    height: 15px;
-    width: 15px;
-    margin-top: -7px;
-    background: #fff;
-    border: 1px solid var(--color-headline);
-    border-radius: 25px;
-    cursor: pointer;
-    z-index: 1;
-    transition: .5s;
-    -webkit-transition: .5s;
-    -moz-transition: .5s;
-    -ms-transition: .5s;
-    -o-transition: .5s;
-}
+
 
 .input-ranges[type='range']::-webkit-slider-thumb:hover {
     background: #eaefff;
@@ -331,7 +316,22 @@ button:hover {
     display: inline-block;
     margin-top: -5px;
 }
-
+.input-ranges[type='range']::-webkit-slider-thumb {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    margin-top: -7px;
+    background: #fff;
+    border: 1px solid var(--color-headline);
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 1;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
 .rangeslider input {
     position: absolute;
 }
