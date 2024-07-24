@@ -10,6 +10,11 @@ main h1{
 
 }
  
+
+ul li{
+    list-style: none;
+}
+
 #bidingContainer article {
     background-color: white;
     border-radius: 8px;
@@ -18,9 +23,6 @@ main h1{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-}
-ul li{
-    list-style: none;
 }
 
 img{
