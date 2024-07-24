@@ -351,6 +351,21 @@ header .logo-name {
     display: inline-block;
   }
 
+ /* Transition for dropdown menus */
+  .artist-dropdown,
+  .art-on-demand-ul,
+  .dropdown-menu {
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+  }
+
+  /* Hide dropdowns with transition */
+  .added_drpdown_list .artist-dropdown,
+  .artEnthu_drpdown_list .art-on-demand-ul,
+  .profile_drpdown_list .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+  
   /* dropdown for artist */
   .added_drpdown_list .artist-dropdown {
     display: contents;
@@ -382,20 +397,7 @@ header .logo-name {
     min-width: 142px;
   }
 
-  /* Transition for dropdown menus */
-  .artist-dropdown,
-  .art-on-demand-ul,
-  .dropdown-menu {
-    transition: opacity 0.7s ease, visibility 0.7s ease;
-  }
-
-  /* Hide dropdowns with transition */
-  .added_drpdown_list .artist-dropdown,
-  .artEnthu_drpdown_list .art-on-demand-ul,
-  .profile_drpdown_list .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-  }
+ 
 
   body:not(.added_drpdown_list) .artist-dropdown,
   body:not(.artEnthu_drpdown_list) .art-on-demand-ul,
