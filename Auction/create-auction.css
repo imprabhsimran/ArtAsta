@@ -164,17 +164,6 @@ div#fileNameDisplay img {
 /*code by Priyanka*/
 @media screen and (min-width:750px){
 
-    .container{
-        max-width: 90%;
-        box-shadow: none;
-    }
-
-    form#auction-form{
-        display: grid;
-        grid-template-columns: 0.4fr 0.5fr;
-        gap: 3rem;
-        justify-content: end;
-    }
     #subheading{
         margin: 0 auto;
     }
@@ -197,5 +186,17 @@ div#fileNameDisplay img {
     }
     .header h1{
         margin-left: 8rem;
+    }
+    
+    .container{
+        max-width: 90%;
+        box-shadow: none;
+    }
+
+    form#auction-form{
+        display: grid;
+        grid-template-columns: 0.4fr 0.5fr;
+        gap: 3rem;
+        justify-content: end;
     }
 }
