@@ -120,14 +120,7 @@ button {
     position: relative;
 }
 
-/*by priyanka*/
-.modal-content input {
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 70%;
-    margin-right: 1rem;
-}
+/*by Hemant*/
 
 .close {
     color: #aaa;
@@ -142,3 +135,12 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
+
+.modal-content input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 70%;
+    margin-right: 1rem;
+}
+
