@@ -59,6 +59,14 @@ label{
     margin: 0;
     margin-bottom: 40px;
 }
+button[type="submit"]:hover{
+    background-color: #B7B7B7;
+}
+
+.form-group{
+    margin-top: 40px;
+    text-align: center;
+}
 
 input[type="email"], input[type="password"], button[type="submit"]{
     width: 100%;    
@@ -79,14 +87,6 @@ button[type="submit"]{
     font-size: 16px;
 }
 
-button[type="submit"]:hover{
-    background-color: #B7B7B7;
-}
-
-.form-group{
-    margin-top: 40px;
-    text-align: center;
-}
 
 form {
     backdrop-filter: blur(100px);
