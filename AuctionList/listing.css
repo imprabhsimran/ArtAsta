@@ -181,15 +181,7 @@ article p {
 article strong {
     color: #333;
 }
-button:hover {
-    background-color: #333;
-}
 
-#auctions {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 1rem;
-}
 
 .list-view #auctions {
     display: grid;
@@ -207,7 +199,15 @@ button:hover {
     display: block;
     margin: auto;
 }
+button:hover {
+    background-color: #333;
+}
 
+#auctions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1rem;
+}
 .bid-button:hover {
     background-color: black;
 }
