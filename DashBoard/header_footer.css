@@ -270,17 +270,7 @@ header .logo-name {
     flex-basis: 93%;
   }
 
-  .desktop-header .header-nav-elements {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    flex-basis: 100%;
-  }
-
-  .desktop-header .header-nav-elements li {
-    list-style: none;
-    position: relative;
-  }
+  
 
   .desktop-header .header-nav-elements li a {
     text-decoration: none;
@@ -338,7 +328,17 @@ header .logo-name {
   .social-media-icons i {
     color: black;
   }
+.desktop-header .header-nav-elements {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    flex-basis: 100%;
+  }
 
+  .desktop-header .header-nav-elements li {
+    list-style: none;
+    position: relative;
+  }
   .tablet-footer .logo-name .black,
   .tablet-footer .footer-nav,
   .tablet-footer p {
