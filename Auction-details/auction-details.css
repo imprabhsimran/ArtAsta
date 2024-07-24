@@ -96,14 +96,7 @@ body {
 }
 
 @media screen and (max-width: 700px) {
-  .auction-post {
-    grid-template-columns: 1fr;
-  }
-
-  .text-box {
-    grid-column: 1/-1;
-  }
-}
+  
 
 .modal {
   display: none; 
@@ -134,7 +127,14 @@ body {
   font-size: 28px;
   font-weight: bold;
 }
+.auction-post {
+    grid-template-columns: 1fr;
+  }
 
+  .text-box {
+    grid-column: 1/-1;
+  }
+}
 .close-button:hover,
 .close-button:focus {
   color: black;
