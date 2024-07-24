@@ -113,18 +113,7 @@ header .logo-name {
   transition: width 0.3s ease-in-out; /* Add transition for smooth width change */
 }
 
-.mobile-navigation .fa-search {
-  position: absolute;
-  left: 10px;
-  color: black;
-}
 
-.mobile-navigation .fa-bars {
-  font-weight: bolder;
-  color: black;
-  font-size: 1.8rem;
-  margin-left: 1rem;
-}
 
 /* Focus effect for mobile search input field */
 .mobile-navigation #search-field:focus {
@@ -146,7 +135,18 @@ header .logo-name {
   align-items: center;
   gap: 1rem;
 }
+.mobile-navigation .fa-search {
+  position: absolute;
+  left: 10px;
+  color: black;
+}
 
+.mobile-navigation .fa-bars {
+  font-weight: bolder;
+  color: black;
+  font-size: 1.8rem;
+  margin-left: 1rem;
+}
 .footer-nav {
   display: flex;
   flex-flow: row nowrap;
