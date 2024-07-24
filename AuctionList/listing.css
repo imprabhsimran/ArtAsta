@@ -152,14 +152,7 @@ article h2 {
     color: #333;
 }
 
-article p {
-    margin: 0.5rem 0;
-    color: #555;
-}
 
-article strong {
-    color: #333;
-}
 
 #auctions article img {
     height: 250px;
@@ -180,6 +173,14 @@ button {
     cursor: pointer;
 }
 
+article p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+article strong {
+    color: #333;
+}
 button:hover {
     background-color: #333;
 }
