@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             loadPosts();
         });
     }
-
+// By Hemant
     async function loadPosts() {
         try {
             const snapshotAod = await getDocs(collection(db, 'Art-on-demand'));
