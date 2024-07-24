@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     let userData = userDocSnap.data();
                     console.log("User data:", userData);
                     userRole = userData.role; // Assign userRole
-                    // Call auctionloadData function here with userRole
                     auctionloadData(userRole);
                 } else {
                     console.log('No valid role found for the user.');
@@ -86,12 +85,17 @@ async function auctionloadData(userRole) {
         const auctionContainer = document.getElementById('auctions');
         auctionContainer.innerHTML = ''; 
 
-        auctionSnapshot.forEach(doc => {
-            const auctionDocData = doc.data();
+        auctionSnapshot.forEach(async auctionDoc => {
+            const auctionDocData = auctionDoc.data();
             if (!auctionDocData || !Array.isArray(auctionDocData.auctions)) {
-                console.error('Invalid data or missing auctions array in document:', doc.id);
+                console.error('Invalid data or missing auctions array in document:', auctionDoc.id);
                 return;
             }
+
+            const artistDocRef = doc(db, "Artist", auctionDoc.id);
+            const artistDocSnap = await getDoc(artistDocRef);
+            const artistName = artistDocSnap.exists() ? artistDocSnap.data().Name : 'Unknown Artist';
+
             auctionDocData.auctions.forEach((auctionData, index) => {
                 const auctionElement = document.createElement('article');
 
@@ -99,21 +103,48 @@ async function auctionloadData(userRole) {
                 const bidDur = auctionData.BidDur;
                 const endTime = startTime && bidDur ? calculateEndTime(startTime, bidDur) : 'Unknown date';
 
+                function calculateEndTime(startTime, bidDur) {
+                    const startDate = parseISODateString(startTime);
+                    if (!startDate) return 'Invalid date';
+                    const endDate = new Date(startDate.getTime() + bidDur * 60 * 60 * 1000);
+                    return endDate;
+                }
+
+                function parseISODateString(isoString) {
+                    if (!isoString) {
+                        console.error('Invalid or missing date:', isoString);
+                        return null;
+                    }
+                    const date = new Date(isoString);
+                    if (isNaN(date)) {
+                        console.error(`Invalid date format: ${isoString}`);
+                        return null;
+                    }
+                    return date;
+                }
+
+                const highestBidder = auctionData.offers && auctionData.offers.length > 0 
+                    ? auctionData.offers[auctionData.offers.length - 1] 
+                    : null;
+
+                console.log(auctionData);
                 auctionElement.innerHTML = `
                     <img src="${auctionData.AuctionArtworkUrl || 'default-image.jpg'}" alt="Auction Artwork">
                     <div>
                         <h2>${auctionData.Title || 'Untitled Post'}</h2>
+                        <p><strong>Created By:</strong> ${artistName}</p>
                         <p>${auctionData.Description || 'No content available.'}</p>
                         <p><strong>Live until:</strong> ${endTime}</p>
                         <p>Starting Bid Amount: $${auctionData.StartBid}</p>
                         <p>Current Bid Amount: $${auctionData.CurrentBid || 0}</p>
-                        ${userRole === 'Art Enthusiast' ? `<button class="bid-button" id="auction-${doc.id}-${index}" data-id="${doc.id}">Place a Bid</button>` : ''}
+                        ${highestBidder ? `<p><strong>Highest Bidder:<strong> ${highestBidder.UserName} (${highestBidder.email})</p>` : ''}
+                        ${userRole === 'Art Enthusiast' ? `<button class="bid-button" id="auction-${auctionDoc.id}-${index}" data-id="${auctionDoc.id}">Place a Bid</button>` : ''}
                     </div>`;
 
                 auctionContainer.appendChild(auctionElement);
 
                 if (userRole === 'Art Enthusiast') {
-                    let btnID = `auction-${doc.id}-${index}`;
+                    let btnID = `auction-${auctionDoc.id}-${index}`;
                     let getBtn = document.getElementById(btnID);
                     let currentTime = new Date();
 
@@ -123,7 +154,7 @@ async function auctionloadData(userRole) {
                     }
 
                     getBtn.addEventListener('click', () => {
-                        window.location.href = `../auction-details/auction-details.html?id=${doc.id}&check=${index}`;
+                        window.location.href = `../auction-details/auction-details.html?id=${auctionDoc.id}&check=${index}`;
                     });
                 }
             });
@@ -181,12 +212,12 @@ applyButton.addEventListener('click', function(e) {
     minBid = parseInt(minPrice.value, 10);
     maxBid = parseInt(maxPrice.value, 10);
     const sortOption = document.querySelector('input[name="lowest"]:checked')?.value;
-    // Check if minBid and maxBid are valid numbers
+
     if (isNaN(minBid) || isNaN(maxBid)) {
         console.error('Invalid minBid or maxBid value.');
         return;
     }
-    // Filter and sort auctions with userRole
+
     console.log(sortOption)
 
     auctionloadDataFilteredAndSorted(userRole, minBid, maxBid, sortOption);
@@ -219,7 +250,6 @@ async function auctionloadDataFilteredAndSorted(userRole, minBid, maxBid, sortOp
 
         console.log('auctionsArray before sorting:', auctionsArray);
 
-        // Sort auctions by bid value (CurrentBid if available, otherwise StartBid)
         if (sortOption === 'lowest') {
             auctionsArray.sort((a, b) => {
                 const bidA = a.CurrentBid || a.StartBid;
@@ -277,4 +307,7 @@ async function auctionloadDataFilteredAndSorted(userRole, minBid, maxBid, sortOp
     } catch (error) {
         console.log('Error loading data:', error);
     }
+}
+
+
 }
