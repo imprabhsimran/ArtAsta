@@ -33,6 +33,23 @@ div#fileNameDisplay img {
     margin-bottom: 20px;
 }
 
+
+/*code by Priyanka*/
+.subheading{
+    font-size: 0.5rem;
+}
+
+
+.photo-upload {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.photo-upload label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
 .header .back {
     text-decoration: none;
     color: black;
@@ -50,23 +67,6 @@ div#fileNameDisplay img {
     margin-bottom: 20px;
     color:black;
 }
-/*code by Priyanka*/
-.subheading{
-    font-size: 0.5rem;
-}
-
-
-.photo-upload {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.photo-upload label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
 .photo-upload input[type="file"] {
     display: none;
 }
