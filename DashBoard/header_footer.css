@@ -214,14 +214,6 @@ header .logo-name {
   visibility: hidden;
   position: absolute;
 }
-
-/* art on demand section */
-.art-on-demand-ul {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-}
-
 /* Profile Drop down */
 .dropdown-menu {
   opacity: 0;
@@ -234,6 +226,14 @@ header .logo-name {
   width: 100%;
   background-color: white;
 }
+/* art on demand section */
+.art-on-demand-ul {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+
 
 @media only screen and (min-width: 700px) {
   .desktop-header img {
