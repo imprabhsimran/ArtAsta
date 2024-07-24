@@ -11,6 +11,11 @@ header {
     width: 100%;
 }
 
+h1 {
+    margin-left: 1rem;
+    color: #f7804a;
+}
+
 main {
     padding: 1rem;
 }
@@ -21,10 +26,7 @@ main {
     gap: 1rem;
 }
 
-h1 {
-    margin-left: 1rem;
-    color: #f7804a;
-}
+
 
 .post {
     padding: 1.5rem;
