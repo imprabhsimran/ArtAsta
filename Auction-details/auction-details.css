@@ -34,7 +34,7 @@ body {
 
 .auction-post {
   display: grid;
-  grid-template-columns: 1.5fr 0.5fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   grid-column: 3 / -1;
 }
@@ -50,7 +50,17 @@ body {
   margin-bottom: 10px;
 }
 
+.auction-post img{
+  height: 400px;
+  object-fit: cover;
+}
 
+.auction-post .bid-section {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
 
 .auction-post .bid-section input[type="number"] {
   height: 35px;
@@ -71,12 +81,6 @@ body {
   background-color: #ff9900;
 }
 
-.auction-post .bid-section {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
 .auction-post .highest-bidder {
   font-size: 16px;
   font-weight: bold;
@@ -96,7 +100,14 @@ body {
 }
 
 @media screen and (max-width: 700px) {
-  
+  .auction-post {
+    grid-template-columns: 1fr;
+  }
+
+  .text-box {
+    grid-column: 1/-1;
+  }
+}
 
 .modal {
   display: none; 
@@ -127,14 +138,7 @@ body {
   font-size: 28px;
   font-weight: bold;
 }
-.auction-post {
-    grid-template-columns: 1fr;
-  }
 
-  .text-box {
-    grid-column: 1/-1;
-  }
-}
 .close-button:hover,
 .close-button:focus {
   color: black;
