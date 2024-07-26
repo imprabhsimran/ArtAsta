@@ -63,20 +63,29 @@ document.addEventListener('DOMContentLoaded', async function () {
     function createAuctionElement(auctionItem, index) {
         const auctionElement = document.createElement('div');
         auctionElement.classList.add('auction-post');
-
+        
+        // Find the highest bid and the corresponding user name
+        let highestBidder = 'No bids yet';
+        if (auctionItem.offers && auctionItem.offers.length > 0) {
+            const highestBid = auctionItem.offers.reduce((max, offer) => offer.BidAmount > max.BidAmount ? offer : max, auctionItem.offers[0]);
+            highestBidder = highestBid.UserName;
+        }
+    
         auctionElement.innerHTML = `
             <h2>${auctionItem.Title || 'Untitled Auction'}</h2>
-            
             ${auctionItem.AuctionArtworkUrl ? `<img src="${auctionItem.AuctionArtworkUrl}" alt="Auction Image" width="300">` : ''}
             <p><strong>Description:</strong> ${auctionItem.Description || 'No description available.'}</p>
             <p><strong>Starting Bid:</strong> ${auctionItem.StartBid || 'Not specified'}</p>
             <p><strong>Bidding Duration:</strong> ${auctionItem.BidDur || 'Not specified'} days</p>
-            <p><strong>Start Time:</strong> ${auctionItem.StartTime || 'Not specified'}</p>
-            <i class="fa-solid fa-trash-can delete-btn" data-post-id="${auctionItem.id}" data-post-index="${index}"></i>
+            <p><strong>End Date & Time:</strong> ${auctionItem.StartTime || 'Not specified'}</p>
+            <p><strong>Highest Bidder:</strong> ${highestBidder}</p>
+            
+            <i class="fa-regular fa-circle-xmark delete-btn" data-post-id="${auctionItem.id}" data-post-index="${index}"></i>
         `;
-
+        
         return auctionElement;
     }
+    
 
     async function delete_post(postId, postIndex) {
         try {
@@ -110,4 +119,3 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     }
 });
-
