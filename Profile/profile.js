@@ -56,37 +56,39 @@ document.addEventListener('DOMContentLoaded', async function () {
     function displayProfile(profileData) {
         profileContainer.innerHTML = `
             <div class="profile-card">
-                <div class="profile-inline">
-                    <div class="header_img">
-                        <img src="${profileData.ProfileUrl || 'placeholder.jpg'}" alt="${profileData.Name}" class="profile-picture" />
-                        <h1>${profileData.Name} (${profileData.role})</h1>
+                <div class="profile-content">
+                    <div class="profile-details">
+                        <div class="header_img">
+                            <img src="${profileData.ProfileUrl || 'placeholder.jpg'}" alt="${profileData.Name}" class="profile-picture" />
+                            <h1>${profileData.Name} (${profileData.role})</h1>
+                        </div>
+    
+                        <p><strong>Email:</strong> ${profileData.Email}</p>
+                        <p><strong>Bio:</strong> ${profileData.Bio}</p>
+                        <p><strong>Address:</strong> ${profileData.Address}</p>
+    
+                        ${profileData.role === 'Artist' ? `
+                            <p><strong>Profession:</strong> ${profileData.Profession}</p>
+                            <p><strong>Art Category:</strong> ${profileData.ArtCategory}</p>
+                            <a href="View-my-auctions/view-my-postings.html">View My Auction Postings</a><br>
+                            <a href="View-sent-aod-offers/View-sent-aod-offers.html">View Art-on-Demand Request Offers</a>
+                        ` : profileData.role === 'Art Enthusiast' ? `
+                            <a href="View-my-bidings/view-my-bidings.html">View My Biddings</a>
+                            <a href="View-my-aod-requests/view-my-requests.html">View My Art-on-Demand Requests</a><br>
+                        ` : ''}
                     </div>
+    
                     ${profileData.role === 'Artist' ? `
-                        <a href="View-my-auctions/view-my-postings.html">View My Auction Postings</a>` : ''} <br>
-                    ${profileData.role === 'Artist' ? `
-                        <a href="View-sent-aod-offers/View-sent-aod-offers.html">View Art-on-Demand Requests Offered</a>` : ''}
-                    ${profileData.role === 'Art Enthusiast' ? `
-                        <a href="View-my-aod-requests/view-my-requests.html">View My Art-on-Demand Requests</a>` : ''} <br>
-                    ${profileData.role === 'Art Enthusiast' ? `
-                        <a href="View-my-bidings/view-my-bidings.html">View My Bidings</a>` : ''}
-                        
-                    
-                    <p><strong>Email:</strong> ${profileData.Email}</p>
-                    <p><strong>Bio:</strong> ${profileData.Bio}</p>
-                    ${profileData.role === 'Artist' ? `
-                        <p><strong>Profession:</strong> ${profileData.Profession}</p>
-                        <p><strong>Art Category:</strong> ${profileData.ArtCategory}</p>
-                    </div>
-                    <div class="artwork-grid">
-                        <h1>My Artwork</h1>
-                        ${profileData.ArtworkUrls.map(url => `<img src="${url}" alt="Artwork">`).join('')}
-                    </div>` : ''}
+                        <div class="artwork-grid">
+                            <h1>My Artwork</h1>
+                            ${profileData.ArtworkUrls.map(url => `<img src="${url}" alt="Artwork">`).join('')}
+                        </div>
+                    ` : ''}
                 </div>
             </div>
         `;
     }
     
-
     // Listen for auth state changes
     auth.onAuthStateChanged((user) => {
         if (user) {
@@ -108,4 +110,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     });
 });
+
+
 
