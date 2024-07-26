@@ -11,28 +11,32 @@ header {
     width: 100%;
 }
 
-h1 {
-    margin-left: 1rem;
-    color: #f7804a;
-}
-
 main {
     padding: 1rem;
+    max-width: 1200px;
+    min-height: 90vh;
+    margin: auto;
+}
+
+main h1{
+    margin: 1rem;
+    color: #f7804a;
 }
 
 #postsContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
+    padding: 1rem;
 }
 
-
-
 .post {
-    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -41,23 +45,24 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#postsContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.post {
-    background-color: #f0f0f0;
-    padding: 20px;
+.post img {
+    width: 100%;
+    height: 200px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
+    object-fit: cover;
+    margin-bottom: 1rem;
 }
 
+.post h2 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
 
+.post p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+}
 
 button {
     background-color: #000;
@@ -66,14 +71,13 @@ button {
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
-
+    margin-top: 1rem;
 }
 
 .placeOfferBtn {
-    padding: 0.5rem;
-    margin-left: 0;
-    width: max-content;
-    align-self: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
 }
 
 .modal {
@@ -90,37 +94,22 @@ button {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 600px;
     position: relative;
-}
-
-.post-content {
-    flex: 1;
-}
-
-.post h2 {
-    font-size: 1.5rem;
-    margin-top: 0.5rem;
-}
-
-.post p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
-}
-
-.post img {
-    width: 100%;
-    height: 200px;
     border-radius: 8px;
-    margin-top: auto;
-    margin-bottom: 1rem;
 }
-/*by Hemant*/
+
+.modal-content input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% - 100px); /* Adjust based on your layout */
+    margin-right: 1rem;
+}
 
 .close {
     color: #aaa;
@@ -136,11 +125,15 @@ button {
     cursor: pointer;
 }
 
-.modal-content input {
+.modal-content .ok-button {
+    display: block;
+    width: 100%;
     padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 70%;
-    margin-right: 1rem;
+    background-color: #f7804a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 1rem;
 }
-
