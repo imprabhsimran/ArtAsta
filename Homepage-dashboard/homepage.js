@@ -132,20 +132,23 @@ function auctionloadData(userRole) {
                     const currentTime = new Date();
                     const isAuctionLive = currentTime < endTime;
 
-                    const highestBidder = auctionData.offers && auctionData.offers.length > 0
-                        ? auctionData.offers[auctionData.offers.length - 1]
-                        : null;
+                    // Find the highest bid and the corresponding user name
+                    let highestBidder = 'No bids yet';
+                    if (auctionData.offers && auctionData.offers.length > 0) {
+                        const highestBid = auctionData.offers.reduce((max, offer) => offer.BidAmount > max.BidAmount ? offer : max, auctionData.offers[0]);
+                        highestBidder = highestBid.UserName;
+                    }
 
                     auctionElement.innerHTML = `
                         <img src="${auctionData.AuctionArtworkUrl || 'default-image.jpg'}" alt="Auction Artwork">
                         <h2>${auctionData.Title || 'Untitled Post'}</h2>
                         <p><strong>Created By:</strong> ${artistName}</p>
-                        <p>${auctionData.Description || 'No content available.'}</p>
                         <p><strong>Live until:</strong> ${endTime}</p>
                         <p><strong>Starting Bid Amount:</strong> $${auctionData.StartBid}</p>
-                        <p><strong>Current Bid Amount:</strong> $${auctionData.CurrentBid || 0}</p>
-                        ${highestBidder ? `<p><strong>Highest Bidder:</strong> ${highestBidder.UserName} (${highestBidder.email})</p>` : ''}
+                        <p><strong>Current Bid Amount:</strong> $${auctionData.CurrentBid || auctionData.StartBid}</p>
+                        <p><strong>Highest Bidder:</strong> ${highestBidder}</p>
                         ${userRole === 'Art Enthusiast' ? `<button class="bid-button" id="auction-${auctionDoc.id}-${index}" data-id="${auctionDoc.id}">Place a Bid</button>` : ''}
+                        ${userRole === 'Artist' ? `<p><strong>Auction Status:</strong> ${isAuctionLive ? 'Auction is Live' : 'Auction Ended'}</p>` : ''}
                     `;
 
                     auctionContainer.appendChild(auctionElement);
@@ -153,7 +156,6 @@ function auctionloadData(userRole) {
                     if (userRole === 'Art Enthusiast') {
                         let btnID = `auction-${auctionDoc.id}-${index}`;
                         let getBtn = document.getElementById(btnID);
-                        let currentTime = new Date();
 
                         if (currentTime >= endTime) {
                             getBtn.disabled = true;
@@ -165,7 +167,7 @@ function auctionloadData(userRole) {
                         });
                     }
 
-                    items.push(auctionElement); // Collecting items for pagination
+                    items.push(auctionElement); 
                 });
             });
         });
@@ -174,13 +176,14 @@ function auctionloadData(userRole) {
     }
 }
 
+
 function artistloadData() {
     try {
         const artistContainer = document.getElementById('artists');
         artistContainer.innerHTML = ''; 
 
         onSnapshot(collection(db, "Artist"), (snapshot) => {
-            artistContainer.innerHTML = ''; // Clear existing items
+            artistContainer.innerHTML = ''; 
 
             let items = [];
             let numToDisplay = 4;
@@ -271,3 +274,4 @@ function artOnDemandloadData() {
         console.error('Error loading data:', error);
     }
 }
+
