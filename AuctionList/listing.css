@@ -10,19 +10,21 @@ body {
 main {
     padding: 1rem;
     position: relative;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 90vh;
 }
 
-
-.select {
-    display: flex;
+.back-drop {
     width: 100%;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 2rem;
+    height: 100%;
+    z-index: 2;
+    top: 102px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: none;
 }
+
 .filter-sort {
     display: none;
     position: fixed;
@@ -40,6 +42,24 @@ main {
     top: 112px;
 }
 
+.filter-sort__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-self: self-start;
+    margin-bottom: 2rem;
+}
+
+.select {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 .select__filter {
     width: 100%;
     cursor: pointer;
@@ -54,22 +74,6 @@ main {
 
 .active-select {
     border-bottom: 3px solid black;
-}
-
-.back-drop {
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    top: 101px;
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.5);
-    display: none;
-}
-.filter-sort__title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    align-self: self-start;
-    margin-bottom: 2rem;
 }
 
 .filter {
@@ -142,7 +146,6 @@ article {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
 }
 
@@ -150,27 +153,6 @@ article h2 {
     margin: 0 0 0.5rem;
     font-size: 1.2rem;
     color: #333;
-}
-
-
-
-#auctions article img {
-    height: 250px;
-}
-
-img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-button {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 article p {
@@ -182,6 +164,36 @@ article strong {
     color: #333;
 }
 
+#auctions article img {
+    height: 250px;
+    border-radius: 0;
+}
+
+img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+#auctions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1rem;
+}
 
 .list-view #auctions {
     display: grid;
@@ -199,15 +211,7 @@ article strong {
     display: block;
     margin: auto;
 }
-button:hover {
-    background-color: #333;
-}
 
-#auctions {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 1rem;
-}
 .bid-button:hover {
     background-color: black;
 }
@@ -217,21 +221,6 @@ button:hover {
     ;
 }
 
-
-.card-content .values {
-    margin-bottom: 1rem;
-    font-weight: 500;
-    color: var(--color-primary);
-
-}
-
-.card-content .values>div:first-child {
-    margin-right: 2px;
-}
-
-.card-content .values>div:last-child {
-    margin-left: 2px;
-}
 .card-conteiner {
     cursor: default;
     --color-primary: #3f4656;
@@ -249,6 +238,21 @@ button:hover {
 .card-content {
     display: inline-block;
     vertical-align: top;
+}
+
+.card-content .values {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: var(--color-primary);
+
+}
+
+.card-content .values>div:first-child {
+    margin-right: 2px;
+}
+
+.card-content .values>div:last-child {
+    margin-left: 2px;
 }
 
 .card-content {
@@ -291,7 +295,22 @@ button:hover {
     background: none;
 }
 
-
+.input-ranges[type='range']::-webkit-slider-thumb {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    margin-top: -7px;
+    background: #fff;
+    border: 1px solid var(--color-headline);
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 1;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
 
 .input-ranges[type='range']::-webkit-slider-thumb:hover {
     background: #eaefff;
@@ -316,22 +335,7 @@ button:hover {
     display: inline-block;
     margin-top: -5px;
 }
-.input-ranges[type='range']::-webkit-slider-thumb {
-    position: relative;
-    height: 15px;
-    width: 15px;
-    margin-top: -7px;
-    background: #fff;
-    border: 1px solid var(--color-headline);
-    border-radius: 25px;
-    cursor: pointer;
-    z-index: 1;
-    transition: .5s;
-    -webkit-transition: .5s;
-    -moz-transition: .5s;
-    -ms-transition: .5s;
-    -o-transition: .5s;
-}
+
 .rangeslider input {
     position: absolute;
 }
