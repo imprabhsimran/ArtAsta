@@ -3,7 +3,6 @@ import { getFirestore, collection, doc, getDocs, getDoc } from "https://www.gsta
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import firebaseConfig from '../../firebaseConfig';
 
-// Initializing Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -90,10 +89,10 @@ async function auctionloadData(userRole, userEmail) {
                             <h2>${auctionData.Title || 'Untitled Post'}</h2>
                             <p>${auctionData.Description || 'No content available.'}</p>
                             <p><strong>Live until:</strong> ${endTime}</p>
-                            <p>Starting Bid Amount: $${auctionData.StartBid}</p>
-                            <p>Current Bid Amount: $${auctionData.CurrentBid || 0}</p>
+                            <p><strong>Starting Bid Amount:</strong> $${auctionData.StartBid}</p>
+                            <p><strong>Current Bid Amount:</strong> $${auctionData.CurrentBid || 0}</p>
                             <div>
-                                <h3>Your Offers:</h3>
+                                <h4>Your Offers:</h4>
                                 <ul>
                                     ${userOffers.map(offer => `<li>${offer.UserName}: $${offer.bidAmount}</li>`).join('')}
                                 </ul>
@@ -124,10 +123,3 @@ async function auctionloadData(userRole, userEmail) {
         console.log('Error loading data:', error);
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    toggleButton.style.margin = '1rem'; 
-
-    const header = document.querySelector('header');
-    document.body.classList.add('grid-view');
-});
