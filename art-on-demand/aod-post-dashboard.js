@@ -3,8 +3,8 @@ import { getFirestore, collection, getDocs, getDoc, doc, updateDoc, onSnapshot }
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import firebaseConfig from '../firebaseConfig';
 
-const app = initializeApp(firebaseConfig); 
-const db = getFirestore(app); 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 const auth = getAuth(app);
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -15,15 +15,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     onAuthStateChanged(auth, async (user) => {
         if (user) {
             currentUser = user;
-            console.log("Current User:", user.uid); 
+            console.log("Current User:", user.uid);
 
             const userDocRef = doc(db, "Users", user.uid);
             const userDocSnap = await getDoc(userDocRef);
 
             if (userDocSnap.exists()) {
                 const userData = userDocSnap.data();
-                userRole = userData.role; 
-                console.log("User Role:", userRole); 
+                userRole = userData.role;
+                console.log("User Role:", userRole);
                 setupOnSnapshot();
             } else {
                 console.error("No such user document!");
@@ -69,20 +69,26 @@ document.addEventListener('DOMContentLoaded', async function () {
                         const postElement = document.createElement('article');
                         postElement.className = 'post';
                         postElement.innerHTML = `
+                            ${postData.ImageUrl ? `<img src="${postData.ImageUrl}" alt="Post image" width="300">` : ''}
                             <h2>${postData.Title || 'Untitled Post'}</h2>
                             <p><strong>Posted By:</strong> ${artistName}</p>
                             <p><strong>Description:</strong> ${postData.Description || 'No content available.'}</p>
-                            ${postData.ImageUrl ? `<img src="${postData.ImageUrl}" alt="Post image" width="300">` : ''}
                             <div id="offersList-${postId}-${index}"></div>
-                            `;
+                        `;
 
                         const offerListDiv = postElement.querySelector(`#offersList-${postId}-${index}`);
+
                         if (postData.Offers) {
-                            const userOffer = postData.Offers.find(offer => offer.ArtistId === currentUser.uid);
-                            if (userOffer) {
-                                offerListDiv.innerHTML = `<p>Your Offer: $${userOffer.OfferedPrice}</p>`;
-                            } else if (userRole === 'Artist') {
-                                addOfferButton(postElement, postId, index);
+                            const acceptedOffer = postData.Offers.find(offer => offer.status === 'accepted');
+                            if (acceptedOffer) {
+                                offerListDiv.innerHTML = `<p>This art on demand is no longer accepting offers.</p>`;
+                            } else {
+                                const userOffer = postData.Offers.find(offer => offer.ArtistId === currentUser.uid);
+                                if (userOffer) {
+                                    offerListDiv.innerHTML = `<p>Your Offer: $${userOffer.OfferedPrice}</p>`;
+                                } else if (userRole === 'Artist') {
+                                    addOfferButton(postElement, postId, index);
+                                }
                             }
                         } else if (userRole === 'Artist') {
                             addOfferButton(postElement, postId, index);
@@ -102,6 +108,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     function addOfferButton(postElement, postId, index) {
         const offerButton = document.createElement('button');
         offerButton.textContent = 'Place Offer';
+        offerButton.className = 'placeOfferBtn';
         offerButton.addEventListener('click', () => showOfferForm(postId, index));
         postElement.appendChild(offerButton);
     }
@@ -113,7 +120,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         offerForm.className = 'modal-content';
         offerForm.innerHTML = `
             <span class="close">&times;</span>
-            <input type="number" id="offerPrice-${postId}-${postIndex}" placeholder="Offer Price">
+            <input type="number" id="offerPrice-${postId}-${postIndex}" placeholder="Offer Price" required>
             <button type="submit">Submit Offer</button>
         `;
         modalContainer.appendChild(offerForm);
@@ -121,11 +128,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         const closeButton = modalContainer.querySelector('.close');
         closeButton.addEventListener('click', () => {
             modalContainer.style.display = 'none';
+            document.body.removeChild(modalContainer);
         });
         modalContainer.style.display = 'block';
         offerForm.addEventListener('submit', async (event) => {
             event.preventDefault();
             const offerPrice = document.getElementById(`offerPrice-${postId}-${postIndex}`).value;
+            console.log("Offer Price:", offerPrice);
             await submitOffer(postId, postIndex, offerPrice);
             modalContainer.style.display = 'none';
             showConfirmationModal(offerPrice);
@@ -171,6 +180,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                         ArtistId: currentArtistId,
                         ArtistName: currentArtistName,
                         OfferedPrice: offerPrice,
+                        status: 'pending'
                     });
                     console.log(`Added new offer for artist ${currentArtistName} with price ${offerPrice}`);
                 }
