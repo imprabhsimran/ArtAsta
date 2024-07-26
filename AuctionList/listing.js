@@ -3,7 +3,6 @@ import { getFirestore, collection, doc, getDocs, getDoc } from "https://www.gsta
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import firebaseConfig from '../firebaseConfig.js';
 
-// Initializing Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -128,16 +127,17 @@ async function auctionloadData(userRole) {
                     : null;
 
                 console.log(auctionData);
+
+                
                 auctionElement.innerHTML = `
                     <img src="${auctionData.AuctionArtworkUrl || 'default-image.jpg'}" alt="Auction Artwork">
                     <div>
                         <h2>${auctionData.Title || 'Untitled Post'}</h2>
                         <p><strong>Created By:</strong> ${artistName}</p>
                         <p>${auctionData.Description || 'No content available.'}</p>
-                        <p><strong>Live until:</strong> ${endTime}</p>
                         <p>Starting Bid Amount: $${auctionData.StartBid}</p>
                         <p>Current Bid Amount: $${auctionData.CurrentBid || 0}</p>
-                        ${highestBidder ? `<p><strong>Highest Bidder:<strong> ${highestBidder.UserName} (${highestBidder.email})</p>` : ''}
+                        ${highestBidder ? `<p><strong>Highest Bidder:</strong> ${highestBidder.UserName} (${highestBidder.email})</p>` : '<p><strong>Highest Bidder:</strong> No bids yet</p>'}
                         ${userRole === 'Art Enthusiast' ? `<button class="bid-button" id="auction-${auctionDoc.id}-${index}" data-id="${auctionDoc.id}">Place a Bid</button>` : ''}
                     </div>`;
 
@@ -310,4 +310,3 @@ async function auctionloadDataFilteredAndSorted(userRole, minBid, maxBid, sortOp
 }
 
 
-}
