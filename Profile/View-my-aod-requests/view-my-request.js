@@ -3,11 +3,9 @@ import { getFirestore, doc, updateDoc, getDoc, onSnapshot} from "https://www.gst
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import firebaseConfig from '../../firebaseConfig';
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
-
 document.addEventListener('DOMContentLoaded', function () {
     const artOnDemandContainer = document.getElementById('artOnDemandContainer');
 
@@ -27,20 +25,27 @@ document.addEventListener('DOMContentLoaded', function () {
                         artOnDemandContainer.appendChild(postElement);
                     });
 
-                    // >>>>>>>>>>>>>>>>>>>>
-
+                    // Add event listeners for delete buttons
                     const deleteButtons = document.querySelectorAll('.delete-btn');
                     deleteButtons.forEach(button => {
                         button.addEventListener('click', async function (e) {
                             e.preventDefault();
                             const postId = e.target.getAttribute('data-post-id');
                             const postIndex = e.target.getAttribute('data-post-index');
-                            console.log(`Deleting post with ID: ${postId} at index: ${postIndex}`);
                             await delete_post(postId, postIndex);
                         });
                     });
 
-                    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                    // Add event listeners for delete offer buttons
+                    const deleteOfferButtons = document.querySelectorAll('.delete-offer-btn');
+                    deleteOfferButtons.forEach(button => {
+                        button.addEventListener('click', async function (e) {
+                            e.preventDefault();
+                            const postId = e.target.getAttribute('data-post-id');
+                            const offerIndex = e.target.getAttribute('data-offer-index');
+                            await delete_offer(postId, offerIndex);
+                        });
+                    });
                 } else {
                     console.log('No art-on-demand data found for the current user.');
                 }
@@ -63,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="accepted-offer">
                         <p><strong>Final Accepted Offer:</strong></p>
                         <p><strong>Artist Name:</strong> ${offer.ArtistName}</p>
-                        <p><strong>Artist ID:</strong> ${offer.ArtistId}</p>
                         <p><strong>Offered Price:</strong> $${offer.OfferedPrice}</p>
                     </div>
                 `;
@@ -86,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="offers">
                 ${offersHtml}
             </div>
-            <i class="fa-solid fa-trash-can delete-btn" data-post-id="${postItem.id}" data-post-index="${index}"></i>
+            <i class="fa-regular fa-circle-xmark delete-btn" data-post-id="${postItem.id}" data-post-index="${index}"></i>
         `;
 
         offers.forEach((offer, offerIndex) => {
@@ -124,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             } else {
                                 return offer;
                             }
-                        });
+                        }).filter(offer => offer.status === 'accepted');
                     }
                     return post;
                 });
@@ -150,17 +154,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             const currentArtistId = currentUser.uid;
-            console.log(`Current artist ID: ${currentArtistId}`);
-            console.log(`Post ID to delete: ${postId}`);
-
             const postRef = doc(db, 'Art-on-demand', currentArtistId);
             const postSnap = await getDoc(postRef);
 
             if (postSnap.exists()) {
                 const posts = postSnap.data().posts || [];
-                console.log(`Posts before deletion: ${JSON.stringify(posts)}`);
                 posts.splice(postIndex, 1);  
-                console.log(`Posts after deletion: ${JSON.stringify(posts)}`);
 
                 await updateDoc(postRef, { posts });
 
@@ -171,8 +170,5 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error("Error deleting post:", error);
         }
-    }
+    } 
 });
-
-
-
