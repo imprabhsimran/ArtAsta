@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f1f1f1;
+    line-height: 1.8;
 }
 
 header {
@@ -40,7 +41,6 @@ main {
     border-radius: 5px 0 0 5px;
     outline: none;
     width: 300px;
-    /* Adjust width as needed */
 }
 
 .search-container .fas.fa-search {
@@ -103,6 +103,7 @@ main {
     gap: 20px;
     overflow-x: auto;
     padding-bottom: 10px;
+    scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: #f7804A #f4f4f4;
 }
@@ -135,10 +136,11 @@ main {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 0.3rem;
 }
 
 #auctions article:hover,
@@ -148,14 +150,20 @@ main {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-#auctions article img, #art-on-demand article img, .artwork-image {
+#auctions article img,
+#art-on-demand article img,
+.artwork-image {
     width: 250px;
     height: 150px;
     object-fit: cover;
+    border-radius: 0;
+    margin: 0 auto;
+}
+
+.artwork-image{
+    width: 150px;
+    height: 150px;
     border-radius: 10px 10px 0 0;
-    margin: auto;
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
 #auctions article h2,
@@ -183,7 +191,6 @@ main {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 1rem;
-    align-self: center;
 }
 
 #auctions button:hover,
@@ -222,7 +229,7 @@ main {
 }
 
 footer-content {
-    color: #fff;
+    color: #000;
     text-align: center;
     font-size: 1rem;
 }
@@ -264,16 +271,21 @@ footer-content {
     background-color: #333;
 }
 
+.header-wrapped-search {
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 700px) {
+    .header-wrapped-search {
+        justify-content: space-between;
+    }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .search-container input[type="text"] {
         width: 100%;
         margin-left: 2rem;
-    }
-
-    .header-wrapped-search {
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     .search-container {
