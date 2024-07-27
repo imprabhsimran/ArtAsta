@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +8,7 @@
 body {
   font-family: "Urbanist", sans-serif;
   line-height: 1.4;
+  background-color: #f4f4f4;
 }
 
 img {
@@ -25,7 +27,7 @@ img {
   width: 1px;
 }
 
-/* Header section  =========================================== */
+/* Header section =========================================== */
 .header-mobile-nav-elements li {
   list-style: none;
 }
@@ -38,12 +40,22 @@ img {
   display: flex;
   justify-content: center;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
   position: fixed;
   top: 100px;
   width: 100%;
   height: calc(100vh - 100px);
-  background-color: black;
+  background-color: #ffffff;
+  /* margin-top: 3rem; */
+  z-index: 10;
+}
+.mobile_navigation_reveal main {
+  background-color: white;
+}
+
+.black {
+  color: black;
+  font-size: 1.4rem;
 }
 
 .header-mobile-nav-elements {
@@ -51,11 +63,12 @@ img {
   flex-flow: column nowrap;
   gap: 1rem;
   margin-top: 1rem;
+  margin-right: 2rem;
 }
 
 .header-mobile-nav-elements li a {
   text-decoration: none;
-  color: white;
+  color: #333333;
 }
 
 .header-main-nav {
@@ -69,9 +82,10 @@ img {
 .mobile-header {
   display: flex;
   flex-flow: row wrap;
-  padding: 0.5rem;
+  padding: 1rem;
   justify-content: space-between;
   align-items: center;
+  background-color: #ffffff;
 }
 
 header .logo-name {
@@ -82,12 +96,13 @@ header .logo-name {
 }
 
 .logo-name img {
-  max-width: 80px;
+  max-width: 46px;
   margin-right: 0.4rem;
 }
 
 .logo-name .orange {
   color: #f7804a;
+  font-size: 1.4rem;
 }
 
 /* Mobile Navigation */
@@ -103,17 +118,29 @@ header .logo-name {
   position: relative;
   display: flex;
   align-items: center;
+  padding: 0 0.5rem;
 }
 
 .mobile-navigation input {
   padding: 0.6rem 2rem;
-  border: 1px solid black;
+  border: 1px solid #ddd;
   border-radius: 20px;
   width: 200px; /* Fixed size to avoid changing with page size */
   transition: width 0.3s ease-in-out; /* Add transition for smooth width change */
 }
 
+.mobile-navigation .fa-search {
+  position: absolute;
+  left: 10px;
+  color: #333333;
+}
 
+.mobile-navigation .fa-bars {
+  font-weight: bolder;
+  color: #333333;
+  font-size: 1.8rem;
+  margin-left: 1rem;
+}
 
 /* Focus effect for mobile search input field */
 .mobile-navigation #search-field:focus {
@@ -134,19 +161,9 @@ header .logo-name {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-}
-.mobile-navigation .fa-search {
-  position: absolute;
-  left: 10px;
-  color: black;
+  background-color: #ffffff;
 }
 
-.mobile-navigation .fa-bars {
-  font-weight: bolder;
-  color: black;
-  font-size: 1.8rem;
-  margin-left: 1rem;
-}
 .footer-nav {
   display: flex;
   flex-flow: row nowrap;
@@ -163,7 +180,7 @@ header .logo-name {
 
 .mobile-footer .social-media-icons a {
   color: white;
-  background-color: black;
+  background-color: #333333;
   padding: 0.43rem;
   border-radius: 5px;
 }
@@ -201,7 +218,7 @@ header .logo-name {
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-  color: black;
+  color: #333333;
 }
 
 .desktop-header .desktop-navigation #search-field:focus {
@@ -214,6 +231,14 @@ header .logo-name {
   visibility: hidden;
   position: absolute;
 }
+
+/* art on demand section */
+.art-on-demand-ul {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
 /* Profile Drop down */
 .dropdown-menu {
   opacity: 0;
@@ -224,27 +249,15 @@ header .logo-name {
 /* Footer */
 .mobile-footer {
   width: 100%;
-  background-color: white;
+  background-color: #ffffff;
 }
-/* art on demand section */
-.art-on-demand-ul {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-}
-
-
 
 @media only screen and (min-width: 700px) {
   .desktop-header img {
-    max-width: 70px;
+    max-width: 50px;
   }
 
   .mobile-header {
-    display: none;
-  }
-
-  .mobile-footer {
     display: none;
   }
 
@@ -255,10 +268,11 @@ header .logo-name {
   /* Header Tablet */
   .desktop-header {
     display: flex;
-    background-color: black;
+    background-color: #ffffff;
     align-items: center;
     padding: 0.5rem 0;
     min-height: 83px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .desktop-header img {
@@ -270,11 +284,21 @@ header .logo-name {
     flex-basis: 93%;
   }
 
-  
+  .desktop-header .header-nav-elements {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    flex-basis: 100%;
+  }
+
+  .desktop-header .header-nav-elements li {
+    list-style: none;
+    position: relative;
+  }
 
   .desktop-header .header-nav-elements li a {
     text-decoration: none;
-    color: white;
+    color: #333333;
   }
 
   /* Footer starts */
@@ -286,10 +310,9 @@ header .logo-name {
   }
 
   .tablet-footer {
-    display: flex;
-    flex-flow: row wrap;
     padding: 1rem;
-    background-color: black;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .tablet-footer .logo-name {
@@ -315,8 +338,8 @@ header .logo-name {
   }
 
   .tablet-footer .social-media-icons a {
-    color: white;
-    background-color: white;
+    color: #333333;
+    background-color: #f4f4f4;
     padding: 0.43rem;
     border-radius: 5px;
   }
@@ -326,52 +349,28 @@ header .logo-name {
   }
 
   .social-media-icons i {
-    color: black;
-  }
-.desktop-header .header-nav-elements {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    flex-basis: 100%;
+    color: #f7804a;
   }
 
-  .desktop-header .header-nav-elements li {
-    list-style: none;
-    position: relative;
-  }
   .tablet-footer .logo-name .black,
   .tablet-footer .footer-nav,
   .tablet-footer p {
-    color: white;
+    color: #333333;
     text-align: center;
     margin-top: 1rem;
   }
+
   /* desktop navigation */
   .desktop-navigation {
     display: inline-block;
   }
 
- /* Transition for dropdown menus */
-  .artist-dropdown,
-  .art-on-demand-ul,
-  .dropdown-menu {
-    transition: opacity 0.7s ease, visibility 0.7s ease;
-  }
-
-  /* Hide dropdowns with transition */
-  .added_drpdown_list .artist-dropdown,
-  .artEnthu_drpdown_list .art-on-demand-ul,
-  .profile_drpdown_list .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-  }
-  
   /* dropdown for artist */
   .added_drpdown_list .artist-dropdown {
     display: contents;
     display: block;
-    background-color: black;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
     z-index: 1;
     padding: 10px;
     min-width: 200px;
@@ -381,23 +380,30 @@ header .logo-name {
   /* dropdown for artEnthusiast */
   .artEnthu_drpdown_list .art-on-demand-ul {
     display: block;
-    background-color: black;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
     z-index: 1;
     padding: 10px;
     min-width: 280px;
+    top: 53px;
   }
 
   .profile_drpdown_list .dropdown-menu {
     display: block;
-    background-color: black;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
     z-index: 10;
     padding: 10px;
     min-width: 142px;
   }
 
- 
+  /* Hide dropdowns with transition */
+  .added_drpdown_list .artist-dropdown,
+  .artEnthu_drpdown_list .art-on-demand-ul,
+  .profile_drpdown_list .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
 
   body:not(.added_drpdown_list) .artist-dropdown,
   body:not(.artEnthu_drpdown_list) .art-on-demand-ul,
@@ -406,9 +412,7 @@ header .logo-name {
     visibility: hidden;
   }
 
-  /* safaf */
   .tablet-footer {
-    /* position: sticky; */
     width: 100%;
     bottom: 0;
   }
