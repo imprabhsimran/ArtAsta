@@ -42,21 +42,36 @@ img {
   text-align: center;
   font-size: 1.7rem;
   position: fixed;
-  top: 100px;
+  top: 0;
   width: 100%;
-  height: calc(100vh - 100px);
-  background-color: #ffffff;
+  height: 100vh;
+  background-color: #f4f4f4;
   /* margin-top: 3rem; */
   z-index: 10;
 }
-.mobile_navigation_reveal main {
+/* .mobile_navigation_reveal main {
   background-color: white;
-}
+} */
 
 .black {
   color: black;
   font-size: 1.4rem;
 }
+
+/* latest Changes */
+#nav-mobile-logo{
+  max-width: 50px;
+}
+
+
+#mobile-nav-cross{
+  color: black;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  z-index: 10000;
+}
+
 
 .header-mobile-nav-elements {
   display: flex;
@@ -64,12 +79,58 @@ img {
   gap: 1rem;
   margin-top: 1rem;
   margin-right: 2rem;
+  width: 100%; /* Set the width to 100% */
 }
 
 .header-mobile-nav-elements li a {
   text-decoration: none;
   color: #333333;
+  font-size: 1rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  background-color: #f4f4f4; /* Initial background color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  position: relative;
+  overflow: hidden; /* To hide the underline animation overflow */
 }
+
+.header-mobile-nav-elements li a:hover {
+  background-color: black; /* Change to your preferred hover background color */
+  color: #ffffff; /* Change to your preferred text color */
+}
+
+.header-mobile-nav-elements li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #f7804a; /* Underline color */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.header-mobile-nav-elements li a:hover::after {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  animation: underlineAnimation 2s infinite;
+}
+
+@keyframes underlineAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+/* latest Changes  ended*/
 
 .header-main-nav {
   display: none;
