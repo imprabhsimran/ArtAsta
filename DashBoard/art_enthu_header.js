@@ -3,44 +3,41 @@ class ArtEnthuHeaderContent extends HTMLElement {
         this.innerHTML = `
 <header class="mobile-header">
         <div class="logo-name">
-            <a href="../Homepage-dashboard/homepage.html"><img src="/DashBoard/white-logo-project.jpeg" alt="My logo image"></a>
+            <a href="../Homepage-dashboard/homepage.html"><img src="white-logo-project.jpg" alt="My logo image"></a>
             <h1><span class="black">Art</span><span class="orange">Asta</span></h1>
         </div>
 
         <div class="mobile-navigation">
-            <div class="search-container">
-                <input type="text" placeholder="Search by Title" id="search-field">
-                <i class="fas fa-search"></i>
-            </div>
             <i class="fa-regular fa-bars" id="nav-drpdn"></i>
         </div>
 
          <nav class="header-mobile-main-nav">
             <ul class="header-mobile-nav-elements">
+            <a href="../Homepage-dashboard/homepage.html"><img src="white-logo-project.jpg" alt="My logo image" id="nav-mobile-logo"></a>
+                <li><i class="fa-regular fa-circle-xmark" id="mobile-nav-cross"></i></li>
                 <li>
                     <a href="/Homepage-dashboard/homepage.html">Home</a>
                 </li>
                 <li>                
-                            <a href="/AuctionList/listing.html">Auction</a>
+                    <a href="/AuctionList/listing.html">Auction</a>
                 </li>
                 <li>
                     <a href="/art-on-demand/aod-post-dashboard.html">Art on Demand</a>
                 </li>
                 <li>
-                            <a href="/art-on-demand/posting/aod-posting.html">Create New Art on demand</a>
-                        </li>
+                    <a href="/art-on-demand/posting/aod-posting.html">Create New Art on demand</a>
+                </li>
+                       
                 <li>
                     <a href="/artasta-map/map.html">Find Artists</a>
                 </li>
-                <li>
                         <li><a href="/Profile/profile.html">My Profile</a></li>
                         <li><a href="/Sign_out/signout.html" id="sign_out_id">Sign Out</a></li>
-                </li>
             </ul>
         </nav>
     </header>
     <header class="desktop-header">
-        <a href="../Homepage-dashboard/homepage.html"><img src="/DashBoard/white-logo-project.jpeg" alt="mylogo"></a>
+        <img src="white-logo-project.jpg" alt="mylogo">
         <nav class="header-main-nav">
             <ul class="header-nav-elements">
                 <li>
@@ -101,5 +98,5 @@ class FooterContent extends HTMLElement {
 }
 
 customElements.define('art-enthu-header-content', ArtEnthuHeaderContent)
-// customElements.define('footer-content', FooterContent)
+customElements.define('footer-content', FooterContent)
 
