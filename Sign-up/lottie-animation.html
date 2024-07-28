@@ -4,22 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lottie Animation</title>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.7"></script>
+    <title>Welcome</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest"></script>
     <link rel="stylesheet" href="lottie-animation.css">
+    <script>
+        // Redirect to the sign-up page after 10 seconds
+        setTimeout(function() {
+            window.location.href = 'Sign-up.html';
+        }, 10000);
+    </script>
 </head>
 
 <body>
     <div id="animation-container">
         <h2>Welcome to <span>Art</span>-Asta</h2>
-        <lottie-player src="./Animation - 1722203028931.json" 
+        <lottie-player src="./Animation-1722203028931.json" 
                        background="transparent" 
                        speed="1" 
                        style="width: 300px; height: 300px;" 
                        loop 
                        autoplay>
         </lottie-player>
-        <a href="Sign-up.html">Let Begin this Wonderfull Journey</a>
+        <p>Enjoy while we redirect you to the sign-up page...</p>
+        <a href="Sign-up.html">Lets begin the Journey</a>
     </div>
 </body>
 
