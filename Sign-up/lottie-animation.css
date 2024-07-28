@@ -22,22 +22,23 @@ h2 {
 
 p {
     margin: 20px 0;
+    font-size: 13px;
 }
 
 a {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
+    font-size: 14px;
     color: #fff;
-    background-color: black;
+    background-color: rgb(12, 78, 12);
     text-decoration: none;
     border-radius: 5px;
 }
 
 a:hover {
-    background-color: #4c6d4f;
+    background-color: rgb(68, 78, 12);
 }
-
 h2 span{
     color: orange;
 }
