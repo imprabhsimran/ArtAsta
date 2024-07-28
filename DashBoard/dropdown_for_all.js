@@ -97,3 +97,8 @@ document.addEventListener('keydown', function (e) {
         closeAllDropdowns();
     }
 });
+
+const mobile_cross_drpdwn = document.getElementById('#mobile-nav-cross')
+if(mobile_cross_drpdwn){
+    document.body.classList.remove('mobile_navigation_reveal')
+}
