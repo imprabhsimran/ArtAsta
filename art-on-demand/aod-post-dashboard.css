@@ -36,6 +36,7 @@ main h1{
     background-color: #fff;
     padding: 1.5rem;
     border-radius: 8px;
+    justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
