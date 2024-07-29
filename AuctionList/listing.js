@@ -1,8 +1,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, doc, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import firebaseConfig from '../firebaseConfig.js';
+const firebaseConfig = {
+    apiKey: "AIzaSyDu1mNebskATIVQmz59QosBS1AhdMAkxqM",
+    authDomain: "art-asta-50475.firebaseapp.com",
+    projectId: "art-asta-50475",
+    storageBucket: "art-asta-50475.appspot.com",
+    messagingSenderId: "343332230219",
+    appId: "1:343332230219:web:efe5a85c164e5e461c69ce"
+};
 
+// Initializing Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -128,17 +136,21 @@ async function auctionloadData(userRole) {
 
                 console.log(auctionData);
 
-                
+                // Done by hemant added a div mcard to align to button to bottom
                 auctionElement.innerHTML = `
                     <img src="${auctionData.AuctionArtworkUrl || 'default-image.jpg'}" alt="Auction Artwork">
-                    <div>
-                        <h2>${auctionData.Title || 'Untitled Post'}</h2>
-                        <p><strong>Created By:</strong> ${artistName}</p>
-                        <p>${auctionData.Description || 'No content available.'}</p>
-                        <p>Starting Bid Amount: $${auctionData.StartBid}</p>
-                        <p>Current Bid Amount: $${auctionData.CurrentBid || 0}</p>
-                        ${highestBidder ? `<p><strong>Highest Bidder:</strong> ${highestBidder.UserName} (${highestBidder.email})</p>` : '<p><strong>Highest Bidder:</strong> No bids yet</p>'}
-                        ${userRole === 'Art Enthusiast' ? `<button class="bid-button" id="auction-${auctionDoc.id}-${index}" data-id="${auctionDoc.id}">Place a Bid</button>` : ''}
+                    <div class="mcard">
+                        <div>
+                            <h2>${auctionData.Title || 'Untitled Post'}</h2>
+                            <p><strong>Created By:</strong> ${artistName}</p>
+                            <p>${auctionData.Description || 'No content available.'}</p>
+                            <p>Starting Bid Amount: $${auctionData.StartBid}</p>
+                            <p>Current Bid Amount: $${auctionData.CurrentBid || 0}</p>
+                            ${highestBidder ? `<p><strong>Highest Bidder:</strong> ${highestBidder.UserName} (${highestBidder.email})</p>` : '<p><strong>Highest Bidder:</strong> No bids yet</p>'}
+                            </div>
+                            <div>
+                            ${userRole === 'Art Enthusiast' ? `<button class="bid-button" id="auction-${auctionDoc.id}-${index}" data-id="${auctionDoc.id}">Place a Bid</button>` : ''}
+                        </div>
                     </div>`;
 
                 auctionContainer.appendChild(auctionElement);
@@ -308,5 +320,4 @@ async function auctionloadDataFilteredAndSorted(userRole, minBid, maxBid, sortOp
         console.log('Error loading data:', error);
     }
 }
-
 
