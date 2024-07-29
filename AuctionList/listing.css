@@ -145,10 +145,16 @@ article {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+   grid-template-rows: 1fr 1fr;
 }
+/* Done by Hemant To align the button  */
 
+.mcard{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
 article h2 {
     margin: 0 0 0.5rem;
     font-size: 1.2rem;
@@ -218,7 +224,6 @@ button:hover {
 
 .bid-button {
     background-color: #f7804A;
-    ;
 }
 
 .card-conteiner {
@@ -351,3 +356,5 @@ button:hover {
     float: right;
     margin-right: -5px;
 }
+
+
