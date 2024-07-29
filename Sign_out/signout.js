@@ -1,7 +1,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import firebaseConfig from '../firebaseConfig.js';
+const firebaseConfig = {
+    apiKey: "AIzaSyDu1mNebskATIVQmz59QosBS1AhdMAkxqM",
+    authDomain: "art-asta-50475.firebaseapp.com",
+    projectId: "art-asta-50475",
+    storageBucket: "art-asta-50475.appspot.com",
+    messagingSenderId: "343332230219",
+    appId: "1:343332230219:web:efe5a85c164e5e461c69ce"
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -23,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             signOutButton.addEventListener('click', () => {
                 signOut(auth).then(() => {
                     console.log('Sign-out successful.');
-                    window.location.href = '/Login/login.html';
+                    window.location.href = '../Start-Splash/Start.html';
                 }).catch((error) => {
                     console.error('An error happened during sign-out:', error);
                 });
