@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Auction</title>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="create-auction.js" type="module" defer></script>
+    <link rel="stylesheet" href="./create-auction.css"> 
+    <link rel="stylesheet" href="/DashBoard/header_footer.css">
+    
+    <script src="/DashBoard/artist_header.js" type="module" defer></script>
+    <script type="module" src="/DashBoard/art_enthu_header.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <header id="header"></header>
+
+    <main>
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="header">
+                    <h1>Create New Auction</h1>
+                </div>
+                
+                            </div>
+       
+            <form id="auction-form">
+                <!--Done by priyanka-->
+                <div class="heading-upload-wrapper">
+                    <h2 id="subheading">Add details for your Auction</h2>
+                    <p class="instructions">Add details to attract buyers and ensure a successful auction.</p>
+                    <div class="photo-upload">
+                        <div class="uploadimgarea">
+                        <label for="photo"><i class="fa-solid fa-circle-plus"></i>Add work photo</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" max-size="5242880">
+                        <p class="photo-note">Max 5 MB</p>
+                   
+                </div>
+            </div>
+            <div id="fileNameDisplay"></div><br>
+        </div>
+                <!--Done by priyanka-->
+                <div class="form-wrapper">
+                    <div class="input-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" placeholder="Add Title your work">
+                    </div>
+                    <div class="input-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" placeholder="Add Description your Auction"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="starting-bid">Enter your starting bid</label>
+                        <input type="number" id="starting-bid" name="starting-bid" placeholder="$">
+                    </div>
+                    <div class="input-group">
+                        <label for="duration">Auction duration (in days)</label>
+                        <input type="text" id="duration" name="duration" placeholder="">
+                    </div>
+                    <div class="input-group">
+                        <label for="start-time">End date and time</label>
+                        <input type="datetime-local" id="start-time" name="start-time">
+                    </div>
+                    <button type="submit" class="post-button">Post</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer-content></footer-content>
+</body>
+
+<script src="/DashBoard/dropdown_for_all.js" type="module" ></script>
+
+</html>
