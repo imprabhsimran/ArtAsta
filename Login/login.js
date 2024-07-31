@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         signInWithEmailAndPassword(auth, logEmail, logPassword)
             .then((userCredential) => {            
                 const user = userCredential.user;
-                window.location.href = '/Homepage-dashboard/homepage.html';
+                window.location.href = './Homepage-dashboard/homepage.html';
             })
             .catch((error) => {
                 const errorCode = error.code;
