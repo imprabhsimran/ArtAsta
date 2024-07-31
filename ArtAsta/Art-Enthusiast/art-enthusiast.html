@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer-info</title>
+    <link rel="stylesheet" href="art-enthusiast.css">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="art-enthusiast.js" type="module" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <form id="buyer_info_form">
+        <!-- I commented out this h1 to be replaced by the text provided below -->
+        <!-- <h1>Tell Us About Yourself:</h1> -->
+
+        <!-- Added Header and Paragraph within wrapper-->
+        <div class="desc-enthusiast-wrapper">
+            <h1>Basic info </h1>
+            <p>Hello fellow <span><strong>Art Enthusiast</strong></span>,<br>Tell us more about yourself</p>
+        </div>
+        <!--  -->
+
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="bio">Bio:</label><br>
+        <!-- <input type="text" id="bio" name="bio" maxlength="50"></textarea><br> -->
+        <textarea name="bio" id="bio" required></textarea><br><!-- Added Textarea -->
+
+        <label for="mobile">Mobile Number:</label><br>
+        <input type="text" id="mobile" name="mobile" required><br>
+
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br>
+
+        <label for="profileImage">Add your profile image:</label><br>
+        <input type="file" id="profileImage" name="profileImage" accept="image/*" required><br><br>
+
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <div class="message-field"></div>
+
+</body>
+
+</html>
