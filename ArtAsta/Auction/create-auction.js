@@ -2,7 +2,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getFirestore, doc, setDoc, updateDoc, arrayUnion, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {firebaseConfig} from "../firebaseConfig.js";
+const firebaseConfig = {
+    apiKey: "AIzaSyDu1mNebskATIVQmz59QosBS1AhdMAkxqM",
+    authDomain: "art-asta-50475.firebaseapp.com",
+    projectId: "art-asta-50475",
+    storageBucket: "art-asta-50475.appspot.com",
+    messagingSenderId: "343332230219",
+    appId: "1:343332230219:web:efe5a85c164e5e461c69ce"
+};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
