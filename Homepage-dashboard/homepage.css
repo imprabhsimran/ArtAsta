@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap');
+
+body {
+    font-family: 'Urbanist', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    line-height: 1.8;
+}
+
+header {
+    color: #fff;
+}
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.header-wrapped-search {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row-reverse wrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    width: 300px;
+}
+
+.search-container .fas.fa-search {
+    padding: 10px;
+    background-color: #f7804A;
+    color: white;
+    border: 1px solid #f7804A;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container .fas.fa-search:hover {
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+#role-container {
+    color: #f7804A;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title-wrapper h1 {
+    color: #f7804A;
+    margin: 0;
+}
+
+.title-wrapper a {
+    text-decoration: none;
+    color: #707070;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.title-wrapper a:hover {
+    color: #f7804A;
+}
+
+.section-wrapper {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#auctions,
+#artists,
+#art-on-demand {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #f7804A #f4f4f4;
+}
+
+#auctions::-webkit-scrollbar,
+#artists::-webkit-scrollbar,
+#art-on-demand::-webkit-scrollbar {
+    height: 10px;
+}
+
+#auctions::-webkit-scrollbar-track,
+#artists::-webkit-scrollbar-track,
+#art-on-demand::-webkit-scrollbar-track {
+    background: #f4f4f4;
+}
+
+#auctions::-webkit-scrollbar-thumb,
+#artists::-webkit-scrollbar-thumb,
+#art-on-demand::-webkit-scrollbar-thumb {
+    background-color: #f7804A;
+    border-radius: 10px;
+    border: 1px solid #f4f4f4;
+}
+
+#auctions article,
+#artists article,
+#art-on-demand article {
+    flex: 0 0 25%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 0.3rem;
+}
+
+#auctions article:hover,
+#artists article:hover,
+#art-on-demand article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+#auctions article img,
+#art-on-demand article img,
+.artwork-image {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0;
+    margin: 0 auto;
+}
+
+.artwork-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px 10px 0 0;
+}
+
+#auctions article h2,
+#artists article h2,
+#art-on-demand article h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+#auctions article p,
+#artists article p,
+#art-on-demand article p {
+    font-size: 1rem;
+    color: #666;
+}
+
+#auctions button,
+#artists button,
+#art-on-demand button {
+    background-color: #f7804A;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+#auctions button:hover,
+#artists button:hover,
+#art-on-demand button:hover {
+    background-color: #333;
+}
+
+#auctions article button:disabled {
+    background-color: #B7B7B7;
+    cursor: not-allowed;
+}
+
+.artist-profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.artwork-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+footer-content {
+    color: #000;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modal-ok-button {
+    background-color: #f7804A;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.modal-ok-button:hover {
+    background-color: #333;
+}
+
+.header-wrapped-search {
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 700px) {
+    .header-wrapped-search {
+        justify-content: space-between;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .search-container input[type="text"] {
+        width: 100%;
+        margin-left: 2rem;
+    }
+
+    .search-container {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    #auctions article,
+    #artists article,
+    #art-on-demand article {
+        flex: 0 0 45%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #auctions article,
+    #artists article,
+    #art-on-demand article {
+        flex: 0 0 90%;
+    }
+}
