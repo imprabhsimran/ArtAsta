@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Dashboard</title>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <link rel="stylesheet" href="listing.css">
+    <link rel="stylesheet" href="/DashBoard/header_footer.css">
+    <script src="listing.js" type="module" defer></script>
+    <script src="/DashBoard/artist_header.js" type="module" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js" defer></script>
+    <script type="module" src="/DashBoard/art_enthu_header.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="back-drop"></div>
+    <header id="header"></header>
+    <main>
+        <div class="filter-sort">
+            <p class="filter-sort__title">Filter / Sort Auctions</p>
+            <div class="select">
+                <p class="select__filter active-select">Filter</p>
+                <p class="select__Sort">Sort</p>
+            </div>
+            <div class="filter">
+                <p class="filter__text">Current Bid</p>
+                <div class="card-conteiner">
+                    <div class="card-content">
+                      <div class="values">
+                        <div>$<span id="first">0</span></div> -
+                        <div>$<span id="second">10000</span></div>
+                      </div>
+                      <div class="rangeslider">
+                        <input class="min input-ranges" name="range_1" type="range" min="0" max="10000" step="100" value="0">
+                        <input class="max input-ranges" name="range_1" type="range" min="0" max="10000" step="100" value="10000">
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="sort">
+                <div class="sort_item">
+                    <label class="lowest_label" for="lowest">Low to High</label>
+                    <input class="lowest_radio" type="radio" name="lowest" value="lowest">
+                </div>
+                <div class="sort_item">
+                    <label class="highest_label" for="highest">High to Low</label>
+                    <input class="highest_radio" type="radio" name="lowest" value="highest">
+                </div>
+            </div>
+
+            <button class="filter-sort__btn">Apply</button>
+        </div>
+        <div id="auctionsWrapper">
+            <div class="main_title">
+                <h1>Auctions</h1>
+                <i class="fas fa-sliders-h icon"></i>
+            </div>
+            <div id="auctions"></div>
+        </div>
+    </main>
+    <footer-content></footer-content>
+</body>
+<script src="/DashBoard/dropdown_for_all.js" type="module" ></script>
+</html>

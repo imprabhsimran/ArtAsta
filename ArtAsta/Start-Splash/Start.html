@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest"></script>
+    <link rel="stylesheet" href="Start.css">
+    <script>
+        // Redirect to the Login page after 3 seconds
+        setTimeout(function() {
+            window.location.href = '../Login/login.html';
+        }, 3000);
+    </script>
+</head>
+
+<body>
+    <div id="animation-container">
+        <h2>Welcome to <span>Art</span>-Asta</h2>
+        <lottie-player src="./Animation-1722203028931.json" 
+                       background="transparent" 
+                       speed="1" 
+                       style="width: 300px; height: 300px;" 
+                       loop 
+                       autoplay>
+        </lottie-player>
+        <p>Enjoy while we redirect you to the Login page...</p>
+        <a href="../Login/login.html">Lets begin the Journey</a>
+    </div>
+</body>
+
+</html>
